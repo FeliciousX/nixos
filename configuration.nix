@@ -51,13 +51,34 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget neovim which htop git
+    git
+    zsh
+    oh-my-zsh
+    neovim
+    tmux
+    which
+    htop
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      vim = "nvim";
+    };
+    enableCompletion = true;
+
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "agnoster";
+      custom = "$HOME/projects/dotfiles/oh-my-zsh";
+    };
+  };
 
   # List services that you want to enable:
 
@@ -93,6 +114,7 @@
   users.users.fx = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = "/run/current-system/sw/bin/zsh";
   };
 
   # This value determines the NixOS release with which your system is to be
