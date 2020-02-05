@@ -49,11 +49,19 @@
     git
     zsh
     oh-my-zsh
+    tlp
     neovim
     tmux
     which
     htop
     wget
+    ipfs
+    alacritty
+    syncthing
+    docker
+    docker-compose
+    keepass
+    xdotool # for autotyping. keepass needs it
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -80,6 +88,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.ipfs.enable = true;
+  services.tlp.enable = true;
+  services.syncthing.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -98,7 +110,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fx = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "docker" "wheel" "networkmanager" ];
     shell = "/run/current-system/sw/bin/zsh";
   };
 
