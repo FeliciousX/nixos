@@ -27,20 +27,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "revali"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "revali";
+  networking.networkmanager.enable = true;
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.enp3s0f0.useDHCP = true;
   networking.interfaces.enp5s0.useDHCP = true;
   networking.interfaces.wlp1s0.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   # i18n = {
@@ -49,8 +41,7 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Asia/Kuala_Lumpur";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -107,7 +98,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fx = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = "/run/current-system/sw/bin/zsh";
   };
 
