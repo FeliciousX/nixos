@@ -43,6 +43,7 @@
 
   time.timeZone = "Asia/Kuala_Lumpur";
 
+  nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -63,6 +64,7 @@
     docker-compose
     keepass
     xdotool # for autotyping. keepass needs it
+    spotify
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
