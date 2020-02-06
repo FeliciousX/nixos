@@ -47,6 +47,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    gitAndTools.hub
     zsh
     oh-my-zsh
     tlp
