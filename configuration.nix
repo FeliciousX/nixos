@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      <nixpkgs/nixos/modules/profiles/graphical.nix>
     ];
 
   # LUKS config
@@ -91,7 +90,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.ipfs.enable = true;
+  #services.ipfs.enable = true;
   services.tlp.enable = true;
   services.syncthing.enable = true;
 
@@ -108,7 +107,10 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  services.xserver.enable = true;
   services.xserver.layout = "us";
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome3.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fx = {
