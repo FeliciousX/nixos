@@ -45,21 +45,34 @@
     git
     gitAndTools.hub
     zsh
+    ripgrep
+    du-dust
+    exa
+    fzy
+    exa
     oh-my-zsh
     tlp
-    neovim
     tmux
+    tmuxp
     which
     htop
     wget
     ipfs
+    firefox
+    chromium
+    peek
+    tdesktop
+    vscode
     alacritty
+    tilix
     syncthing
     docker
     docker-compose
     keepass
     xdotool # for autotyping. keepass needs it
     spotify
+    google-cloud-sdk
+    nodejs-12_x
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
