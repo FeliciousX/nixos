@@ -36,13 +36,6 @@
   networking.interfaces.enp5s0.useDHCP = true;
   networking.interfaces.wlp1s0.useDHCP = true;
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
   time.timeZone = "Asia/Kuala_Lumpur";
 
   nixpkgs.config.allowUnfree = true;
