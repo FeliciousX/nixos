@@ -42,37 +42,38 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    gitAndTools.hub
-    zsh
-    ripgrep
-    du-dust
-    exa
-    fzy
-    exa
-    oh-my-zsh
-    tlp
-    tmux
-    tmuxp
-    which
-    htop
-    wget
-    ipfs
-    firefox
-    chromium
-    peek
-    tdesktop
-    vscode
-    alacritty
-    tilix
-    syncthing
-    docker
-    docker-compose
-    keepass
-    xdotool # for autotyping. keepass needs it
-    spotify
-    google-cloud-sdk
-    nodejs-12_x
+    pkgs.git
+    pkgs.gitAndTools.hub
+    pkgs.zsh
+    pkgs.ripgrep
+    pkgs.du-dust
+    pkgs.exa
+    pkgs.fzy
+    pkgs.exa
+    pkgs.oh-my-zsh
+    pkgs.tlp
+    pkgs.tmux
+    pkgs.tmuxp
+    pkgs.which
+    pkgs.htop
+    pkgs.wget
+    pkgs.ipfs
+    pkgs.xorg.xhost
+    pkgs.firefox
+    pkgs.chromium
+    pkgs.peek
+    pkgs.tdesktop
+    pkgs.vscode
+    pkgs.alacritty
+    pkgs.tilix
+    pkgs.syncthing
+    pkgs.docker
+    pkgs.docker-compose
+    pkgs.keepass
+    pkgs.xdotool # for autotyping. keepass needs it
+    pkgs.spotify
+    pkgs.google-cloud-sdk
+    pkgs.nodejs-12_x
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
