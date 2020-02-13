@@ -127,10 +127,11 @@
   services.xserver.desktopManager.gnome3.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.defaultUserShell = pkgs.zsh;
+
   users.users.fx = {
     isNormalUser = true;
     extraGroups = [ "docker" "wheel" "networkmanager" ];
-    shell = "/run/current-system/sw/bin/zsh";
   };
 
   # This value determines the NixOS release with which your system is to be
