@@ -104,6 +104,10 @@
   services.tlp.enable = true;
   services.syncthing.enable = true;
 
+  # dbus
+  services.dbus.enable = true;
+  services.dbus.socketActivated = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
