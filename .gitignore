@@ -1,0 +1,2 @@
+# ignore `nixos-rebuild test` output
+result
