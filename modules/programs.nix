@@ -97,6 +97,7 @@
 
         # essential programming languages
         nodejs
+        fnm # fast node version manager
         python3
 
         # linting & other useful tools
@@ -125,7 +126,7 @@
       ++ lib.optionals (defaultLocale == "en_GB.UTF-8") [ (hunspellWithDicts [ hunspellDicts.en_GB-large ]) ];
     })
     (lib.mkIf config.oscereal.programs.work.enable {
-      environment.systemPackages = with pkgs; [ teams ];
+      environment.systemPackages = with pkgs; [ teams jdk11 maven ];
     })
   ];
 }
