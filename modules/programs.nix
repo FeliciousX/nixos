@@ -22,16 +22,21 @@
         [
           # lib-kinda stuff
           ntfs3g
+          unzip
 
           # classic *nix
           curl
           wget
           htop
 
-          # cli apps
+          # editor
           kakoune
-          magic-wormhole
+          kakoune-cr
+          kak-lsp
           neovim
+
+          # cli apps
+          magic-wormhole
           tmux
           tmuxp
         ] ++ lib.optionals config.services.xserver.enable [
@@ -58,6 +63,7 @@
           dust
           exa
           fd
+          fzf
           fzy
           httpie
           hyperfine
@@ -66,6 +72,7 @@
           procs
           ripgrep
           tz
+          niv
 
           # cli apps
           exiftool
@@ -78,6 +85,7 @@
           vlc
           alacritty
           bitwarden
+          discord
         ] ++ lib.optionals config.services.xserver.desktopManager.gnome.enable [ tilix transmission-gtk ]
         ++ lib.optionals config.services.xserver.desktopManager.plasma5.enable [ transmission-qt ];
     })
@@ -97,7 +105,6 @@
 
         # essential programming languages
         nodejs
-        fnm # fast node version manager
         python3
 
         # linting & other useful tools
@@ -126,7 +133,7 @@
       ++ lib.optionals (defaultLocale == "en_GB.UTF-8") [ (hunspellWithDicts [ hunspellDicts.en_GB-large ]) ];
     })
     (lib.mkIf config.oscereal.programs.work.enable {
-      environment.systemPackages = with pkgs; [ teams jdk11 maven ];
+      environment.systemPackages = with pkgs; [ jdk11 maven ];
     })
   ];
 }
