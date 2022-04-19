@@ -9,6 +9,10 @@
 
   # allow unfree applications
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.vivaldi = {
+    proprietaryCodecs = true;
+    enableWidevine = true;
+  };
 
   # > Every once in a while, a new NixOS release may change configuration
   # > defaults in a way incompatible with stateful data. For instance, if the
