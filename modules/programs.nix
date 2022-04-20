@@ -58,13 +58,15 @@
 
           # modern *nix
           bat
+          bottom
           dog
           duf
-          dust
+          du-dust
           exa
           fd
           fzf
           fzy
+          gping
           httpie
           hyperfine
           jq
@@ -72,9 +74,9 @@
           procs
           ripgrep
           tz
-          niv
 
           # cli apps
+          niv
           exiftool
           ffmpeg-full
           youtube-dl
