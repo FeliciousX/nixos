@@ -64,6 +64,7 @@
 
   # special programs
   programs.steam.enable = true;
+  programs.gnupg.agent.enable = true;
 
   # enable oscereal extras
   oscereal.programs.fish.enable = true;
