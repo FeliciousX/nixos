@@ -88,6 +88,8 @@
           alacritty
           bitwarden
           discord
+          tdesktop
+          dbeaver
         ] ++ lib.optionals config.services.xserver.desktopManager.gnome.enable [ tilix transmission-gtk ]
         ++ lib.optionals config.services.xserver.desktopManager.plasma5.enable [ transmission-qt ];
     })
