@@ -53,6 +53,7 @@
       environment.systemPackages = with pkgs;
         [
           # essential extras
+          ibm-plex
           chezmoi
           syncthing
 
@@ -77,6 +78,7 @@
 
           # cli apps
           niv
+          taskwarrior
           exiftool
           ffmpeg-full
           youtube-dl
