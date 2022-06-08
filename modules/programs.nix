@@ -132,6 +132,8 @@
       environment.systemPackages = with pkgs; [ jdk11 android-studio ];
     })
     (lib.mkIf config.oscereal.programs.office.enable {
+      services.printing.enable = true;
+      services.printing.drivers = with pkgs; [ gutenprint gutenprintBin ];
       environment.systemPackages = let defaultLocale = config.i18n.defaultLocale;
       in with pkgs;
       [ libreoffice-fresh ]
