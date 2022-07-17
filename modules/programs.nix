@@ -36,6 +36,7 @@
           neovim
 
           # cli apps
+          ngrok
           magic-wormhole
           tmux
           tmuxp
@@ -46,6 +47,7 @@
           xclip
 
           # gui apps i always need
+          logseq
           keepassxc
         ];
     })
