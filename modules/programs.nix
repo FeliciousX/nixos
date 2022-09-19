@@ -37,7 +37,7 @@
 
           # cli apps
           ngrok
-          magic-wormhole
+          #magic-wormhole
           tmux
           tmuxp
         ] ++ lib.optionals config.services.xserver.enable [
