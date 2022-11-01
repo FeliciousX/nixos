@@ -34,6 +34,7 @@
           kakoune-cr
           kak-lsp
           neovim
+          helix
 
           # cli apps
           ngrok
@@ -76,6 +77,7 @@
           jq
           nnn
           procs
+          pv
           ripgrep
           tz
 
