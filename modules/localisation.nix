@@ -12,5 +12,5 @@
     keyMap = "us";
   };
 
-  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nerdfonts ];
+  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nerdfonts hack-font ];
 }
