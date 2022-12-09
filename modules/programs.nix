@@ -28,6 +28,7 @@
           curl
           wget
           htop
+          btop
 
           # editor
           kakoune
