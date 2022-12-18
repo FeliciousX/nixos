@@ -57,6 +57,7 @@
       127.0.0.1 www.zenu.dv
       127.0.0.1 zone.zenu.dv
       127.0.0.1 db.zenu.dv
+      127.0.0.1 replica.db.zenu.dv
       127.0.0.1 search.zenu.dv
       127.0.0.1 memcached.zenu.dv
       127.0.0.1 redis.zenu.dv
