@@ -73,7 +73,6 @@
           fzy
           gping
           gum
-          httpie
           hyperfine
           jq
           nnn
