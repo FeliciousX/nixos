@@ -5,8 +5,8 @@
   };
 
   services.openssh.enable = true;
-  services.openssh.permitRootLogin = "no";
-  services.openssh.passwordAuthentication = false;
+  services.openssh.settings.permitRootLogin = "no";
+  services.openssh.settings.passwordAuthentication = false;
 
   # enable fail2ban
   services.fail2ban.enable = true;

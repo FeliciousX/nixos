@@ -147,7 +147,7 @@
       ++ lib.optionals (defaultLocale == "en_GB.UTF-8") [ (hunspellWithDicts [ hunspellDicts.en_GB-large ]) ];
     })
     (lib.mkIf config.oscereal.programs.work.enable {
-      environment.systemPackages = with pkgs; [ jdk11 maven ];
+      environment.systemPackages = with pkgs; [ jdk11 maven mariadb ];
     })
   ];
 }
