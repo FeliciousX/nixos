@@ -97,7 +97,7 @@
   environment.systemPackages = with pkgs; [
     # browsers
     vivaldi
-    vivaldi-widevine
+    widevine-cdm
     vivaldi-ffmpeg-codecs
     chromium
     firefox-wayland
