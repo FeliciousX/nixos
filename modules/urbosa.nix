@@ -31,8 +31,6 @@
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
 
   # urbosa VM options
   # TODO: try it, might be broken: https://github.com/NixOS/nixpkgs/issues/59219

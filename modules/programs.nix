@@ -89,7 +89,8 @@
           youtube-dl
         ] ++ lib.optionals config.services.xserver.enable [
           # nice to have gui apps
-          fractal
+          # fractal is broken, comment for now
+          #fractal 
           gimp
           vlc
           alacritty

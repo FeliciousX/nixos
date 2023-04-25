@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   time.timeZone = "Australia/Melbourne";
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -12,5 +12,18 @@
     keyMap = "us";
   };
 
-  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nerdfonts hack-font ];
+  fonts = {
+    fonts = with pkgs; [
+       noto-fonts
+       noto-fonts-cjk
+       noto-fonts-emoji
+       noto-fonts-extra
+       nerdfonts
+       hack-font
+    ];
+
+    fontconfig = {
+      antialias = lib.mkDefault true;
+    };
+  };
 }
