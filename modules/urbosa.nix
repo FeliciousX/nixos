@@ -47,10 +47,10 @@
   networking.interfaces.wlp59s0.useDHCP = true;
 
   # zenu related
-  # TODO: check if work?
   networking.extraHosts = 
     ''
       127.0.0.1 search-dashboards.local
+      127.0.0.1 mockserver.zenu.dv
       127.0.0.1 zenu.dv
       127.0.0.1 www.zenu.dv
       127.0.0.1 zone.zenu.dv
@@ -87,7 +87,6 @@
       127.0.0.1 www.holiday.braavos.dv
       127.0.0.1 rural.braavos.dv
       127.0.0.1 www.rural.braavos.dv
-      127.0.0.1 www.bytey.dv
       127.0.0.1 dev.developerrealestateview.com.au
     '';
 
