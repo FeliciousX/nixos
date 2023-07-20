@@ -1,6 +1,4 @@
 { config, pkgs, lib, ... }: {
-  time.timeZone = "Australia/Melbourne";
-
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.inputMethod = {
     enabled = "ibus";
