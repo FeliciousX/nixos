@@ -47,6 +47,7 @@
           trash-cli
           wl-clipboard
           xclip
+          orca
 
           # gui apps i always need
           logseq
