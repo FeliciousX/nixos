@@ -3,7 +3,6 @@
 {
   imports =
     [
-      ../../modules/gnome.nix
       ../../modules/programs.nix
     ];
 

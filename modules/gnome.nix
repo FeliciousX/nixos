@@ -10,6 +10,16 @@
   #services.xserver.dpi = 282;
   #services.gnome.core-developer-tools.enable = true;
 
+  # important non-default applications
+  environment.systemPackages = with pkgs; [
+    # enable heif support for eog & nautilus
+    libheif
+
+    # additional apps
+    gnome.gnome-tweaks
+    #gnome.gnome-boxes
+  ];
+
   # TODO: enable gnome extension
   # nixpkgs.config.firefox.enableGnomeExtensions = true;
 }
