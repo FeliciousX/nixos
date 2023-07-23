@@ -23,7 +23,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixpkgs-unstable home-manager;
+          inherit inputs nixpkgs nixpkgs-unstable home-manager user;
         }
       );
     };
