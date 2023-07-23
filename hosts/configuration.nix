@@ -43,11 +43,6 @@
       enable = true;
     };
 
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
     fail2ban = {
       enable = true;
       maxretry = 1;
@@ -61,6 +56,13 @@
         support32Bit = true;
       };
       pulse.enable = true;
+    };
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
     };
   };
 }
