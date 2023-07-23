@@ -121,6 +121,7 @@
   };
 
   programs = {
+    fish.enable = true;
     home-manager.enable = true;
   };
 
