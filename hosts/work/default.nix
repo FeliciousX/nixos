@@ -3,11 +3,7 @@
 {
   imports =                                               # For now, if applying to other system, swap files
     [(modulesPath + "/installer/scan/not-detected.nix")] ++
-    [(import ./hardware-configuration.nix)] ++            # Current system hardware config @ /etc/nixos/hardware-configuration.nix
-    [(import ../../modules/desktop/gnome/default.nix)] ++ # Window Manager
-    (import ../../modules/desktop/virtualisation) ++      # Virtual Machines & VNC
-    (import ../../modules/hardware) ++                    # Hardware devices
-    (import ../../modules/hardware/work);                 # Hardware specific quirks
+    [(import ./hardware-configuration.nix)]             # Current system hardware config @ /etc/nixos/hardware-configuration.nix
 
   boot = {                                      # Boot options
     kernelPackages = pkgs.linuxPackages_latest;
@@ -24,11 +20,6 @@
     };
   };
 
-  programs = {                                  # No xbacklight, this is the alterantive
-    dconf.enable = true;
-    light.enable = true;
-  };
-
   services = {
     tlp.enable = true;                          # TLP and auto-cpufreq for power management
     auto-cpufreq.enable = true;
@@ -42,17 +33,10 @@
         userServices = true;
       };
     };
-    # samba = {                                   # File Sharing over local network
-    #   enable = true;                            # Don't forget to set a password:  $ smbpasswd -a <user>
-    #   shares = {
-    #     share = {
-    #       "path" = "/home/${user}";
-    #       "guest ok" = "yes";
-    #       "read only" = "no";
-    #     };
-    #   };
-    #   openFirewall = true;
-    # };
   };
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  hardware.bluetooth.enable = true;
+  services.fwupd.enable = true;
+  hardware.enableRedistributableFirmware = true;
 }

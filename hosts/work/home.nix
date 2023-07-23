@@ -3,14 +3,8 @@
 {
   imports =
     [
-      ../../modules/bluetooth.nix
-      ../../modules/firmware.nix
       ../../modules/gnome.nix
-      ../../modules/localisation.nix
-      ../../modules/pipewire.nix
       ../../modules/programs.nix
-      ../../modules/ssh.nix
-      ../../modules/yubikey.nix
     ];
 
   home = {

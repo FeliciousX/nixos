@@ -19,7 +19,8 @@
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager }:
     let
       user = "fx";
-    in {
+    in
+    {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
