@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  systemPackages = with pkgs; [
+  packages = with pkgs; [
     # lib-kinda stuff
     ntfs3g
     unzip
