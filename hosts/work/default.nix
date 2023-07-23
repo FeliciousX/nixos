@@ -4,6 +4,12 @@
   imports = [(import ./hardware-configuration.nix)]; 
 
   boot = {                                      # Boot options
+    initrd.luks = {
+      devices.crypted = {
+        device = "/dev/disk/by-uuid/e9a7231b-c56d-458a-977c-cf28d8f67ab2";
+        preLVM = true;
+      };
+    };
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {                                  # EFI Boot
