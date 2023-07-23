@@ -3,7 +3,7 @@
 {
   imports =                                               # For now, if applying to other system, swap files
     [(modulesPath + "/installer/scan/not-detected.nix")] ++
-    [(import ./hardware-configuration.nix)]             # Current system hardware config @ /etc/nixos/hardware-configuration.nix
+    [(import ./hardware-configuration.nix)];             # Current system hardware config @ /etc/nixos/hardware-configuration.nix
 
   boot = {                                      # Boot options
     kernelPackages = pkgs.linuxPackages_latest;
