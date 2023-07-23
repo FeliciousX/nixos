@@ -25,6 +25,7 @@ in
       };
     };
     modules = [
+      ./work
       ./configuration.nix
 
       home-manager.nixosModules.home-manager {
