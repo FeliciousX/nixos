@@ -1,47 +1,30 @@
 {
+  description = "Personal NixOS System Flake Config";
   inputs = {
     # packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #hyprland = {
+      #url = "github:vaxerski/Hyprland";
+      #inputs.nixpkgs.follows = "nixpkgs";
+    #}
   };
 
-  outputs = { self, nixpkgs, nixos-hardware }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager }:
     let
-      # this should be temporary (famous last words)
-      nixFlakes = { pkgs, ... }: {
-        nix = {
-          package = pkgs.nixUnstable;
-          extraOptions = ''
-            experimental-features = nix-command flakes
-          '';
-        };
-      };
+      user = "fx";
     in {
-      nixosConfigurations.urbosa = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          # enable nix flakes
-          nixFlakes
-
-          # hardware
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-pc-ssd
-
-          ./modules/urbosa.nix
-          ./modules/bluetooth.nix
-          ./modules/users.nix
-          ./modules/firmware.nix
-          ./modules/gnome.nix
-          ./modules/localisation.nix
-          ./modules/nixos.nix
-          ./modules/pipewire.nix
-          ./modules/programs.nix
-          ./modules/ssh.nix
-          ./modules/systemd-boot.nix
-          ./modules/yubikey.nix
-        ];
-      };
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs nixpkgs-unstable home-manager;
+        }
+      );
     };
 }
