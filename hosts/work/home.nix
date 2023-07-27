@@ -18,7 +18,7 @@
       helix
 
       # cli apps
-      ngrok
+      #ngrok
       #magic-wormhole
       tmux
       tmuxp

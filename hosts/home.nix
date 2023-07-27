@@ -8,23 +8,23 @@
     packages = with pkgs; [
       # Terminal
       btop              # Resource Manager
-      tldr              # Helper
+      #tldr              # Helper
 
       # Video/Audio
-      vlc               # Media Player
+      #vlc               # Media Player
 
       # Apps
-      firefox           # Browser
-      google-chrome     # Browser
+      #firefox           # Browser
+      #google-chrome     # Browser
 
       # File Management
-      gnome.file-roller # Archive Manager
-      okular            # PDF Viewer
-      pcmanfm           # File Manager
-      p7zip             # Zip Encryption
+      #gnome.file-roller # Archive Manager
+      #okular            # PDF Viewer
+      #pcmanfm           # File Manager
+      #p7zip             # Zip Encryption
       rsync             # Syncer - $ rsync -r dir1/ dir2/
       unzip             # Zip Files
-      unrar             # Rar Files
+      #unrar             # Rar Files
       zip               # Zip
 
       # General configuration
