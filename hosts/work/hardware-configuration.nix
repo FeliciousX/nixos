@@ -10,10 +10,6 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.initrd.luks.devices.root = {
-    device = "/dev/disk/by-label/NIXLUKS";
-    preLVM = true;
-  };
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
