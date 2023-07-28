@@ -23,6 +23,8 @@
   };
 
   services = {
+    fwupd.enable = true;
+    power-profiles-daemon.enable = false;
     tlp.enable = true;                          # TLP and auto-cpufreq for power management
     auto-cpufreq.enable = true;
     blueman.enable = true;                      # Bluetooth
@@ -35,10 +37,17 @@
         userServices = true;
       };
     };
-  };
-  systemd.services.NetworkManager-wait-online.enable = false;
 
-  hardware.bluetooth.enable = true;
-  services.fwupd.enable = true;
-  hardware.enableRedistributableFirmware = true;
+    xserver.enable = true;
+    xserver.displayManager.gdm.enable = true;
+    xserver.desktopManager.gnome.enable = true;
+  };
+
+  hardware = {
+    bluetooth.enable = true;
+    enableRedistributableFirmware = true;
+    pulseaudio.enable = false;
+  };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
