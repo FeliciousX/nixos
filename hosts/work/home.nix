@@ -8,6 +8,9 @@
       # nice to have gui apps
       # fractal is broken, comment for now
       #fractal 
+      vscode
+      chromium
+      firefox
 
       # version control
       delta

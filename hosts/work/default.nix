@@ -3,6 +3,8 @@
 {
   imports = [(import ./hardware-configuration.nix)]; 
 
+  nixpkgs.config.allowUnfree = true;
+
   boot = {                                      # Boot options
     initrd.luks.devices.root = {
       device = "/dev/disk/by-label/NIXLUKS";
