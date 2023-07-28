@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, ... }: {
+{ config, pkgs, lib, inputs, user, ... }: {
 
   users.users.${user} = {
     initialHashedPassword = "";
@@ -25,23 +25,19 @@
 
   fonts = {
     fonts = with pkgs; [
-       noto-fonts
-       noto-fonts-cjk
-       noto-fonts-emoji
-       noto-fonts-extra
-       nerdfonts
-       hack-font
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+      nerdfonts
+      hack-font
     ];
 
-    fontconfig = {
-      antialias = lib.mkDefault true;
-    };
+    fontconfig = { antialias = lib.mkDefault true; };
   };
-    
+
   services = {
-    openssh = {
-      enable = true;
-    };
+    openssh = { enable = true; };
 
     fail2ban = {
       enable = true;
@@ -66,4 +62,24 @@
       enableSSHSupport = true;
     };
   };
+
+  nix = { # Nix Package Manager settings
+    settings = {
+      auto-optimise-store = true; # Optimise syslinks
+    };
+    gc = { # Automatic garbage collection
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    package = pkgs.nixVersions.unstable; # Enable nixFlakes on system
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
+    '';
+  };
+
+  system = { stateVersion = "23.05"; };
 }

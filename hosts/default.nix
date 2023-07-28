@@ -21,7 +21,7 @@ in
     specialArgs = {
       inherit unstable inputs user;
       host = {
-        hostname = "work";
+        hostname = "urbosa";
       };
     };
     modules = [
@@ -34,7 +34,7 @@ in
         home-manager.extraSpecialArgs = {
           inherit unstable user;
           host = {
-            hostName = "work";
+            hostName = "urbosa";
           };
         };
         home-manager.users.${user} = {
