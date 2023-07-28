@@ -8,18 +8,36 @@
     packages = with pkgs; [
       # Terminal
       btop              # Resource Manager
-      #tldr              # Helper
+      bat
+      direnv
+      bottom
+      du-dust
+      exa
+      fd
+      fzf
+      fzy
+      gum
+      hyperfine
+      jq
+      nnn
+      procs
+      pv
+      ripgrep
+      tldr              # Helper
+      tmux
+      tmuxp
 
       # Video/Audio
-      #vlc               # Media Player
+      vlc               # Media Player
+      ffmpeg-full
 
       # Apps
-      #firefox           # Browser
+      firefox           # Browser
       #google-chrome     # Browser
 
       # File Management
       #gnome.file-roller # Archive Manager
-      #okular            # PDF Viewer
+      okular            # PDF Viewer
       #pcmanfm           # File Manager
       #p7zip             # Zip Encryption
       rsync             # Syncer - $ rsync -r dir1/ dir2/
@@ -28,36 +46,37 @@
       zip               # Zip
 
       # General configuration
-      #git              # Repositories
+      git              # Repositories
       #killall          # Stop Applications
       #nano             # Text Editor
-      #pciutils         # Computer Utility Info
-      #pipewire         # Sound
+      pciutils         # Computer Utility Info
+      pipewire         # Sound
       #usbutils         # USB Utility Info
       #wacomtablet      # Wacom Tablet
-      #wget             # Downloader
+      wget             # Downloader
       #zsh              # Shell
       #
       # General home-manager
-      #alacritty        # Terminal Emulator
-      #dunst            # Notifications
+      alacritty        # Terminal Emulator
+      dunst            # Notifications
       #doom emacs       # Text Editor
-      #libnotify        # Dependency for Dunst
+      libnotify        # Dependency for Dunst
       #neovim           # Text Editor
       #rofi             # Menu
       #rofi-power-menu  # Power Menu
       #udiskie          # Auto Mounting
-      #vim              # Text Editor
+      neovim              # Text Editor
+      helix
       #
       # Xorg configuration
-      #xclip            # Console Clipboard
+      xclip            # Console Clipboard
       #xorg.xev         # Input Viewer
       #xorg.xkill       # Kill Applications
       #xorg.xrandr      # Screen Settings
       #xterm            # Terminal
       #
       # Xorg home-manager
-      #flameshot        # Screenshot
+      flameshot        # Screenshot
       #picom            # Compositer
       #sxhkd            # Shortcuts
       #
@@ -68,7 +87,7 @@
       #swappy           # Screenshot Editor
       #swayidle         # Idle Management Daemon
       #wev              # Input Viewer
-      #wl-clipboard     # Console Clipboard
+      wl-clipboard     # Console Clipboard
       #wlr-randr        # Screen Settings
       #xwayland         # X for Wayland
       #
@@ -82,8 +101,8 @@
       # Desktop
       #ansible          # Automation
       #blueman          # Bluetooth
-      #deluge           # Torrents
-      #discord          # Chat
+      deluge           # Torrents
+      discord          # Chat
       #ffmpeg           # Video Support (dslr)
       #gmtp             # Mount MTP (GoPro)
       #gphoto2          # Digital Photography
@@ -96,18 +115,18 @@
       #plex-media-player# Media Player
       #prismlauncher    # MC Launcher
       #steam            # Games
-      #simple-scan      # Scanning
+      simple-scan      # Scanning
       #sshpass          # Ansible dependency
       # 
       # Laptop
-      #cbatticon        # Battery Notifications
-      #blueman          # Bluetooth
+      cbatticon        # Battery Notifications
+      blueman          # Bluetooth
       #light            # Display Brightness
-      #libreoffice      # Office Tools
+      libreoffice      # Office Tools
       #simple-scan      # Scanning
       #
       # Flatpak
-      #obs-studio       # Recording/Live Streaming
+      obs-studio       # Recording/Live Streaming
     ];
     pointerCursor = {                         # This will set cursor system-wide so applications can not choose their own
       gtk.enable = true;
@@ -142,7 +161,7 @@
     };
     font = {
       #name = "JetBrains Mono Medium";
-      name = "FiraCode Nerd Font Mono Medium";
+      name = "Hack Font Mono Medium";
     };                                        # Cursor is declared under home.pointerCursor
   };
 
