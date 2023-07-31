@@ -1,4 +1,4 @@
-{ pkgs, lib, user, ... }:
+{ pkgs, unstable, lib, user, ... }:
 
 {
   imports = [(import ./hardware-configuration.nix)]; 
@@ -49,6 +49,11 @@
     bluetooth.enable = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    package = unstable.pkgs.docker;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
