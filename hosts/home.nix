@@ -82,9 +82,9 @@
       #
       # Wayland configuration
       #autotiling       # Tiling Script
-      #grim             # Image Grabber
+      grim             # Image Grabber
       #slurp            # Region Selector
-      #swappy           # Screenshot Editor
+      swappy           # Screenshot Editor
       #swayidle         # Idle Management Daemon
       #wev              # Input Viewer
       wl-clipboard     # Console Clipboard
@@ -101,6 +101,7 @@
       # Desktop
       #ansible          # Automation
       #blueman          # Bluetooth
+      bitwarden
       deluge           # Torrents
       discord          # Chat
       #ffmpeg           # Video Support (dslr)
@@ -119,7 +120,7 @@
       #sshpass          # Ansible dependency
       # 
       # Laptop
-      cbatticon        # Battery Notifications
+      #cbatticon        # Battery Notifications
       blueman          # Bluetooth
       #light            # Display Brightness
       libreoffice      # Office Tools
@@ -131,9 +132,7 @@
     pointerCursor = {                         # This will set cursor system-wide so applications can not choose their own
       gtk.enable = true;
       name = "Dracula-cursors";
-      #name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.dracula-theme;
-      #package = pkgs.catppuccin-cursors.mochaDark;
       size = 16;
     };
     stateVersion = "23.05";
@@ -160,7 +159,6 @@
       package = pkgs.papirus-icon-theme;
     };
     font = {
-      #name = "JetBrains Mono Medium";
       name = "Hack Font Mono Medium";
     };                                        # Cursor is declared under home.pointerCursor
   };
