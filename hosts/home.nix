@@ -32,6 +32,8 @@
       ffmpeg-full
 
       # Apps
+      vivaldi
+      vivaldi-ffmpeg-codecs
       firefox           # Browser
       #google-chrome     # Browser
 

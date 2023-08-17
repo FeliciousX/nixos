@@ -11,6 +11,7 @@
       vscode
       chromium
       firefox
+      telegram-desktop
 
       # version control
       delta
