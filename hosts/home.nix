@@ -69,6 +69,9 @@
       #udiskie          # Auto Mounting
       neovim              # Text Editor
       helix
+      yubikey-agent
+      yubikey-manager
+      yubioauth-flutter
       #
       # Xorg configuration
       xclip            # Console Clipboard
