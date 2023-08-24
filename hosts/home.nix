@@ -71,7 +71,7 @@
       helix
       yubikey-agent
       yubikey-manager
-      yubioauth-flutter
+      yubioath-flutter
       #
       # Xorg configuration
       xclip            # Console Clipboard
