@@ -12,6 +12,7 @@
       chromium
       firefox
       telegram-desktop
+      mysql-workbench
 
       # version control
       delta
@@ -27,12 +28,5 @@
 
   services = {                            # Applets
     blueman-applet.enable = true;         # Bluetooth
-    cbatticon = {
-      enable = true;
-      criticalLevelPercent = 10;
-      commandCriticalLevel = ''notify-send "battery critical!"'';
-      lowLevelPercent = 30;
-      iconType = "standard";
-    };
   };
 }
