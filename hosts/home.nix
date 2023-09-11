@@ -69,6 +69,7 @@
       #udiskie          # Auto Mounting
       neovim              # Text Editor
       helix
+      obsidian
       yubikey-agent
       yubikey-manager
       yubioath-flutter
