@@ -39,6 +39,7 @@
         userServices = true;
       };
     };
+    pcscd.enable = true;                        # Needed to use Yubikey Smartcard Mode
 
     xserver.enable = true;
     xserver.displayManager.gdm.enable = true;
