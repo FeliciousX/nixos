@@ -13,6 +13,7 @@
       firefox
       telegram-desktop
       mysql-workbench
+      dbeaver
 
       # version control
       delta
