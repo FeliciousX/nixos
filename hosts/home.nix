@@ -151,9 +151,7 @@
     stateVersion = "23.05";
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs = ./programs;
 
   gtk = {                                     # Theming
     enable = true;
