@@ -73,7 +73,7 @@
       #rofi-power-menu  # Power Menu
       #udiskie          # Auto Mounting
       neovim            # Text Editor
-      helix             # Text Editor
+      #helix             # Text Editor
       yubikey-agent
       yubikey-manager
       yubioath-flutter
@@ -151,7 +151,7 @@
     stateVersion = "23.05";
   };
 
-  programs = ./programs;
+  programs = import ./programs { pkgs = pkgs; };
 
   gtk = {                                     # Theming
     enable = true;
