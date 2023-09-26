@@ -55,11 +55,19 @@
 				{
 					name = "erb";
 					auto-format = true;
+					file-types = ["cfm"];
+					indent = {
+						tab-width = 2;
+						unit = "\t";
+					};
 				}
 				{
 					name = "java";
 					file-types = ["cfc"];
-					indent = { tab-width = 2; unit = "\t"; };
+					indent = {
+						tab-width = 2;
+						unit = "\t";
+					};
 				}
 				{
 					name = "typescript";
