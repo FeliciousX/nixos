@@ -103,7 +103,6 @@
 			};
 			keys.normal = {
 				esc = ["collapse_selection" "keep_primary_selection"];
-				g = "code_action";
 			};
 		};
 	};
