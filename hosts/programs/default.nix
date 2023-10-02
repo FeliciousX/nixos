@@ -82,7 +82,9 @@
 		settings = {
 			theme = "dracula";
 			editor = {
+				mouse = false;
 				line-number = "relative";
+				bufferline = "multiple";
 				lsp.display-messages = true;
 			};
 			editor.cursor-shape = {
@@ -98,6 +100,10 @@
 				j = {
 					k = "normal_mode";
 				};
+			};
+			keys.normal = {
+				esc = ["collapse_selection" "keep_primary_selection"];
+				g = "code_action";
 			};
 		};
 	};
