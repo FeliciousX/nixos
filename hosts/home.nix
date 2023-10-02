@@ -21,6 +21,7 @@
       gum
       hyperfine
       jq
+      neofetch
       nnn
       procs
       pv

@@ -5,6 +5,9 @@
  
      packages = with pkgs; [
 
+      # tui apps
+      slides
+
       # nice to have gui apps
       # fractal is broken, comment for now
       #fractal 
