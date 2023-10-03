@@ -21,6 +21,7 @@
       gum
       hyperfine
       jq
+      marksman
       neofetch
       nnn
       procs
@@ -32,49 +33,48 @@
 
       # Video/Audio
       exiftool
-      vlc               # Media Player
       ffmpeg-full
+      vlc               # Media Player
 
       # Apps
+      firefox           # Browser
       vivaldi
       vivaldi-ffmpeg-codecs
-      firefox           # Browser
       #google-chrome     # Browser
 
       # File Management
       #gnome.file-roller # Archive Manager
       okular            # PDF Viewer
-      #pcmanfm           # File Manager
       #p7zip             # Zip Encryption
+      #pcmanfm           # File Manager
       rsync             # Syncer - $ rsync -r dir1/ dir2/
       syncthing         # File Sync
-      unzip             # Zip Files
       #unrar             # Rar Files
+      unzip             # Zip Files
       zip               # Zip
 
       # General configuration
       git              # Repositories
+      ipfs              # protocol
       #killall          # Stop Applications
-      #nano             # Text Editor
       pciutils         # Computer Utility Info
       pipewire         # Sound
       #usbutils         # USB Utility Info
       #wacomtablet      # Wacom Tablet
       wget             # Downloader
-      ipfs              # protocol
       #zsh              # Shell
-      #
+
       # General home-manager
       alacritty         # Terminal Emulator
-      dunst             # Notifications
       #doom emacs       # Text Editor
+      dunst             # Notifications
+      #helix             # Text Editor
       libnotify         # Dependency for Dunst
       #neovim           # Text Editor
+      neovim            # Text Editor
       #rofi             # Menu
       #rofi-power-menu  # Power Menu
       #udiskie          # Auto Mounting
-      neovim            # Text Editor
-      #helix             # Text Editor
       yubikey-agent
       yubikey-manager
       yubioath-flutter
@@ -111,8 +111,8 @@
       #
       # Desktop
       #ansible          # Automation
-      #blueman          # Bluetooth
       bitwarden
+      #blueman          # Bluetooth
       deluge           # Torrents
       discord          # Chat
       #ffmpeg           # Video Support (dslr)
@@ -129,15 +129,15 @@
       orca              # Screen Reader
       #plex-media-player# Media Player
       #prismlauncher    # MC Launcher
-      #steam            # Games
       simple-scan      # Scanning
       #sshpass          # Ansible dependency
+      #steam            # Games
       # 
       # Laptop
-      #cbatticon        # Battery Notifications
       blueman          # Bluetooth
-      #light            # Display Brightness
+      #cbatticon        # Battery Notifications
       libreoffice      # Office Tools
+      #light            # Display Brightness
       #simple-scan      # Scanning
       #
       # Flatpak
@@ -158,13 +158,7 @@
     enable = true;
     theme = {
       name = "Dracula";
-      #name = "Catppuccin-Mocha-Compact-Mauve-Dark";
       package = pkgs.dracula-theme;
-      #package = pkgs.catppuccin-gtk.override {
-      #  accents = ["mauve"];
-      #  size = "compact";
-      #  variant = "mocha";
-      #};
     };
     iconTheme = {
       name = "Papirus-Dark";

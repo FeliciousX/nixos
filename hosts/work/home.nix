@@ -19,8 +19,6 @@
       dbeaver
 
       # version control
-      delta
-      git
       gh
 
       # Dependencies
