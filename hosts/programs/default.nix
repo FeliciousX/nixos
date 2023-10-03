@@ -44,6 +44,8 @@
 		};
 	};
 
+	lazygit.enable = true;
+
 	helix = {
 		enable = true;
 		languages = {
