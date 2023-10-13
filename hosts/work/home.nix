@@ -11,12 +11,14 @@
       # nice to have gui apps
       # fractal is broken, comment for now
       #fractal 
-      vscode
       chromium
-      firefox
-      telegram-desktop
-      mysql-workbench
+      darktable
       dbeaver
+      firefox
+      mysql-workbench
+      protonvpn-gui
+      telegram-desktop
+      vscode
 
       # version control
       gh
