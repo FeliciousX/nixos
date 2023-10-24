@@ -7,6 +7,7 @@
 
       # tui apps
       slides
+      graph-easy
 
       # nice to have gui apps
       # fractal is broken, comment for now
