@@ -8,6 +8,7 @@
     packages = with pkgs; [
       # Terminal
       bat
+      bitwarden-cli
       bottom
       btop              # Resource Manager
       delta
@@ -30,6 +31,7 @@
       tldr              # Helper
       tmux
       tmuxp
+      zellij
 
       # Video/Audio
       exiftool
