@@ -31,7 +31,6 @@
       tldr              # Helper
       tmux
       tmuxp
-      zellij
 
       # Video/Audio
       exiftool
