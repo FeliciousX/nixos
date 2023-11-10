@@ -6,8 +6,9 @@
      packages = with pkgs; [
 
       # tui apps
-      slides
       graph-easy
+      nmap
+      slides
 
       # nice to have gui apps
       # fractal is broken, comment for now
