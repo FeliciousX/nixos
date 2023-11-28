@@ -23,6 +23,8 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
+  networking.firewall.enable = true;
+
   fonts = {
     fonts = with pkgs; [
       noto-fonts
@@ -37,7 +39,10 @@
   };
 
   services = {
-    openssh = { enable = true; };
+    openssh = {
+      enable = true;
+      openFirewall = true;
+    };
 
     fail2ban = {
       enable = true;
