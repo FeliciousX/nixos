@@ -88,7 +88,6 @@
       #xterm            # Terminal
       #
       # Xorg home-manager
-      flameshot        # Screenshot
       #picom            # Compositer
       #sxhkd            # Shortcuts
       #

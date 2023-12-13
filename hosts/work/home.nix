@@ -34,5 +34,6 @@
 
   services = {                            # Applets
     blueman-applet.enable = true;         # Bluetooth
+    flameshot.enable = true;              # Screenshot
   };
 }
