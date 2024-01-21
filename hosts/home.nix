@@ -14,7 +14,7 @@
       delta
       direnv
       du-dust
-      exa
+      eza
       fd
       fzf
       fzy
