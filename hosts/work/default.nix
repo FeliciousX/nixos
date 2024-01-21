@@ -3,13 +3,6 @@
 {
   imports = [(import ./hardware-configuration.nix)]; 
 
-  nixpkgs.config.allowUnfree = true;
-
-  # temporary permit EOL electron package
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
-  ];
-
   boot = {                                      # Boot options
     initrd.luks.devices.root = {
       device = "/dev/disk/by-label/NIXLUKS";
