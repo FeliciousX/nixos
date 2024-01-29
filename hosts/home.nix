@@ -24,7 +24,6 @@
       jq
       marksman
       neofetch
-      nnn
       procs
       pv
       ripgrep
