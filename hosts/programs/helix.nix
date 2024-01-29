@@ -59,7 +59,9 @@
 		};
 		keys.normal = {
 			esc = ["collapse_selection" "keep_primary_selection"];
-			Ctrl-g = ":toggle-option file-picker.git-ignore";
+			A-t = {
+				g = ":toggle-option file-picker.git-ignore";
+			};
 		};
 	};
 }
