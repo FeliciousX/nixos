@@ -8,9 +8,4 @@
     w = "~/workspaces";
     z = "~/workspaces/valetservice/alcatraz/www/zenu";
 	};
-	plugins = {
-		mappings = {
-			e = "-!|zellij edit $nnn";
-		};
-	};
 }
