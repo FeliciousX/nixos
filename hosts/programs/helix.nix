@@ -61,6 +61,7 @@
 			esc = ["collapse_selection" "keep_primary_selection"];
 			A-t = {
 				g = ":toggle-option file-picker.git-ignore";
+				h = ":toggle-option file-picker.hidden";
 			};
 		};
 	};
