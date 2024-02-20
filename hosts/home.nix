@@ -12,6 +12,7 @@
       bottom
       btop              # Resource Manager
       delta
+      dia
       direnv
       du-dust
       eza
@@ -28,8 +29,6 @@
       pv
       ripgrep
       tldr              # Helper
-      tmux
-      tmuxp
 
       # Video/Audio
       exiftool
