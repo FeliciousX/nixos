@@ -11,6 +11,7 @@
       bitwarden-cli
       bottom
       btop              # Resource Manager
+      curlie
       delta
       dia
       direnv
