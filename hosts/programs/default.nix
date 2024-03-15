@@ -1,6 +1,7 @@
 { pkgs }:
 
 {
+	atuin = import ./atuin.nix;
 	git = import ./git.nix;
 	helix = import ./helix.nix { pkgs = pkgs; };
 	lazygit.enable = true;
