@@ -38,5 +38,8 @@
 		init = {
 			defaultBranch = "main";
 		};
+		rebase = {
+			updateRefs = true;
+		};
 	};
 }
