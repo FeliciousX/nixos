@@ -33,7 +33,7 @@
 			excludesfile = "~/.gitignore";
 		};
 		push = {
-			default = "upstream";
+			default = "current";
 		};
 		init = {
 			defaultBranch = "main";
