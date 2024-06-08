@@ -35,6 +35,7 @@
       exiftool
       ffmpeg-full
       vlc               # Media Player
+      spotify
 
       # Apps
       firefox           # Browser
