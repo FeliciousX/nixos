@@ -133,9 +133,6 @@
       #sshpass          # Ansible dependency
       #steam            # Games
       # 
-      # Laptop
-      blueman          # Bluetooth
-      #cbatticon        # Battery Notifications
       libreoffice      # Office Tools
       #light            # Display Brightness
       #simple-scan      # Scanning

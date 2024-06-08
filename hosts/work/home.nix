@@ -25,6 +25,8 @@
       # version control
       gh
 
+      blueman          # Bluetooth
+
       # Dependencies
       jdk11
       maven
