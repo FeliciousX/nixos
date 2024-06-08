@@ -3,7 +3,7 @@
 {
 	alacritty = import ./alacritty.nix;
 	atuin = import ./atuin.nix;
-	fish = import ./fish.nix;
+	fish = import ./fish;
 	git = import ./git.nix;
 	helix = import ./helix.nix { pkgs = pkgs; };
 	lazygit.enable = true;
