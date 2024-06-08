@@ -50,6 +50,23 @@ in
         hostname = "hyrule";
       };
     };
-    modules = [ ../configuration.nix ];
+    modules = [
+      ./desktop
+      ./configuration.nix
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit unstable user;
+          host = {
+            hostName = "hyrule";
+          };
+        };
+        home-manager.users.${user} = {
+          imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
+        };
+      }
+    ];
   };
 }
