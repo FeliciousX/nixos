@@ -66,7 +66,7 @@
       #zsh              # Shell
 
       # General home-manager
-      alacritty         # Terminal Emulator
+      #alacritty         # Terminal Emulator
       #doom emacs       # Text Editor
       dunst             # Notifications
       #helix             # Text Editor

@@ -1,6 +1,7 @@
 { pkgs }:
 
 {
+	alacritty = import ./alacritty.nix;
 	atuin = import ./atuin.nix;
 	fish = import ./fish.nix;
 	git = import ./git.nix;
