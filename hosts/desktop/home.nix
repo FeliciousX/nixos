@@ -15,7 +15,7 @@
       #fractal 
       chromium
       darktable
-      dbeaver-bin
+      dbeaver
       firefox
       mysql-workbench
       protonvpn-gui
