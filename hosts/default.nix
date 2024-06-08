@@ -41,4 +41,15 @@ in
       }
     ];
   };
+
+  desktop = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit unstable inputs user;
+      host = {
+        hostname = "hyrule";
+      };
+    };
+    modules = [ ../configuration.nix ];
+  };
 }
