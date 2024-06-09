@@ -83,6 +83,9 @@
       pulse.enable = true;
     };
 
+    # Needed to use Yubikey Smartcard Mode
+    pcscd.enable = true;
+
     printing = {
       enable = true;
     };
