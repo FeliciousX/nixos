@@ -32,6 +32,10 @@
     variant = "";
   };
 
+  services.openssh = {
+    authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com" ];
+  };
+
   virtualisation.docker = {
     enable = true;
     package = unstable.pkgs.docker;
