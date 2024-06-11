@@ -4,6 +4,9 @@
     "discord"
     "obsidian"
     "spotify"
+    "steam"
+    "steam-original"
+    "steam-run"
     "vivaldi"
     "vscode"
   ];

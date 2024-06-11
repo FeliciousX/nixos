@@ -45,6 +45,11 @@
     pulseaudio.enable = false;
   };
 
+  # gaming
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
   networking.extraHosts = 
     ''
       127.0.0.1 search-dashboards.local
