@@ -24,7 +24,7 @@
 		gst = "git status";
 		gsw = "git switch";
 		z = "zellij"; # TODO: check if zellij is enabled before setting abbr
-		zenucompose = "docker compose -f docker-compose.yml -f docker-compose-zenu.yml {$argv}";
+		zenucompose = "docker compose -f docker-compose.yml -f docker-compose-zenu.yml";
 	};
 	functions = {
 		extract = builtins.readFile ./extract.fish;
