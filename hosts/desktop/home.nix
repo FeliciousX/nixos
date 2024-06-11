@@ -17,6 +17,7 @@
       darktable
       dbeaver
       firefox
+      mangohud
       mysql-workbench
       protonvpn-gui
       telegram-desktop
