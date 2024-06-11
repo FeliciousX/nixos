@@ -19,6 +19,7 @@
       firefox
       mangohud
       mysql-workbench
+      protonup
       protonvpn-gui
       telegram-desktop
       vscode
@@ -31,5 +32,9 @@
       maven
       mariadb
     ];
+
+    sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+    };
   };
 }
