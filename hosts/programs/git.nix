@@ -1,5 +1,10 @@
 {
 	enable = true;
+	userName = "FeliciousX";
+	userEmail = "hello@feliciousx.dev";
+	signing = {
+		key = "6983E79E35A1E9BF2DDD415447AA4884B840A95F";
+	};
 	includes = [
 		{ path = "~/.gitconfig"; }
 		{
@@ -127,10 +132,6 @@
 	extraConfig = {
 		hub = {
 			protocol = "git";
-		};
-		user = {
-			email = "hello@feliciousx.dev";
-			name = "Churchill Lee";
 		};
 		core = {
 			editor = "hx";
