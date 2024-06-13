@@ -79,6 +79,9 @@
       enable = true;
       maxretry = 1;
       bantime-increment.enable = true;
+      ignoreIP = [
+        "192.168.31.0/24" # TODO: divide my network subnets for homelab
+      ];
     };
 
     pipewire = {
