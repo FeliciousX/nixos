@@ -10,8 +10,6 @@ let
   unstable = import nixpkgs-unstable {
     inherit system;
   };
-
-  lib = nixpkgs.lib;
 in
 {
   work = lib.nixosSystem {
