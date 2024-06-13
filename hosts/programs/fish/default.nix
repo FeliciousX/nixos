@@ -2,7 +2,18 @@
 	enable = true;
 	shellAbbrs = {
 		z = "zellij"; # TODO: check if zellij is enabled before setting abbr
-		zenucompose = "docker compose -f docker-compose.yml -f docker-compose-zenu.yml";
+		zenucompose = "docker compose -f docker-compose.yml -f docker-compose.zenu.yml";
+		ga = "git add";
+		gc = "git commit -v";
+		gcp = "git cherry-pick";
+		gcpa = "git cherry-pick --abort";
+		gf = "git fetch --prune";
+		gm = "git merge";
+		gma = "git merge --abort";
+		grb = "git rebase";
+		grba = "git rebase --abort";
+		gst = "git status";
+		gsw = "git switch";
 	};
 	functions = {
 		extract = builtins.readFile ./extract.fish;
