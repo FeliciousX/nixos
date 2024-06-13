@@ -38,6 +38,8 @@ try this to silence the command not found error
 ### time management
 
 `programs.comodoro.enable`
+`services.comodoro.enable` ?
+`programs.watson.enable`
 
 ### direnv
 
@@ -126,3 +128,49 @@ learn to use lf...
 ### mangohud
 
 understand mangohud
+
+### navi
+
+look at navi again
+
+### neovim
+
+maybe install neovim lol
+
+### nix-index
+
+useful for nix stuff
+
+### nushell
+
+play with it
+
+### obs-studio
+
+use hm
+
+### password-store
+
+### qcal
+
+like hcal, cli calendar
+
+### bitwarden
+
+`programs.rbw.enable`
+
+### ripgrep
+
+### vscode
+
+because whynot
+
+### qt
+
+### flameshot
+
+`services.flameshot.enable`
+
+### hyprland
+
+`wayland.windowManager.hyprland.enable`
