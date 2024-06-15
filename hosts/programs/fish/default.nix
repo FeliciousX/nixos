@@ -7,6 +7,8 @@
 		gc = "git commit -v";
 		gcp = "git cherry-pick";
 		gcpa = "git cherry-pick --abort";
+		gd = "git diff";
+		gds = "git diff --staged";
 		gf = "git fetch --prune";
 		gm = "git merge";
 		gma = "git merge --abort";
