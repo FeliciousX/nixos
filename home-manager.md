@@ -33,7 +33,7 @@ audio visualizer!
 
 try this to silence the command not found error
 
-`programs.command-not-found.enable`
+`programs.command-not-found.enable` - fixed via nix-index and shell integration
 
 ### time management
 

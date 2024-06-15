@@ -11,16 +11,52 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager }:
-    let
-      user = "fx";
-    in
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }@inputs : let
+    user = "fx";
+    system = "x86_64-linux";
+    config = {
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "discord"
+        "obsidian"
+        "spotify"
+        "steam"
+        "steam-original"
+        "steam-run"
+        "vivaldi"
+        "vscode"
+        "unrar"
+      ];
+      permittedInsecurePackages = lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
+    };
+    pkgs = import nixpkgs {
+      inherit system;
+      inherit config;
+    };
+    unstable = import nixpkgs-unstable { inherit system; };
+    lib = nixpkgs.lib;
+  in
     {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixpkgs-unstable home-manager user;
-        }
-      );
+      nixosConfigurations = {
+        desktop = lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit user system pkgs unstable inputs;
+          };
+          modules = [
+            ./hosts/desktop/configuration.nix
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit user system pkgs unstable inputs;
+              };
+              home-manager.users.${user} = {
+                imports = [(import ./hosts/desktop/home.nix)];
+              };
+            }
+          ];
+        };
+      };
     };
 }
