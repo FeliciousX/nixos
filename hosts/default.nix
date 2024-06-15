@@ -16,9 +16,6 @@ in
     inherit system;
     specialArgs = {
       inherit unstable inputs user;
-      host = {
-        hostname = "urbosa";
-      };
     };
     modules = [
       ./work
@@ -29,9 +26,6 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit unstable user;
-          host = {
-            hostName = "urbosa";
-          };
         };
         home-manager.users.${user} = {
           imports = [(import ./home.nix)] ++ [(import ./work/home.nix)];
@@ -44,9 +38,6 @@ in
     inherit system;
     specialArgs = {
       inherit unstable inputs user;
-      host = {
-        hostname = "hyrule";
-      };
     };
     modules = [
       ./desktop
@@ -57,9 +48,6 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit unstable user;
-          host = {
-            hostName = "hyrule";
-          };
         };
         home-manager.users.${user} = {
           imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
