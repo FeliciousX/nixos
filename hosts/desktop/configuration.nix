@@ -318,6 +318,7 @@ in
       keep-outputs          = true
       keep-derivations      = true
     '';
+    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
   };
 
   # This value determines the NixOS release from which the default
