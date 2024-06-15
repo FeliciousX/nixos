@@ -9,6 +9,10 @@
 	lazygit.enable = true;
 	lf = import ./lf.nix;
 	nnn = import ./nnn.nix;
+	nix-index = {
+		enable = true;
+		enableFishIntegration = true;
+	};
 	starship = import ./starship.nix;
 	zellij = import ./zellij.nix;
 }
