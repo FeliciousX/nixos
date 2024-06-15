@@ -57,6 +57,28 @@
             }
           ];
         };
+
+        work = lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit unstable inputs user;
+          };
+          modules = [
+            ./hosts/work/configuration.nix
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit user system pkgs unstable inputs;
+              };
+              home-manager.users.${user} = {
+                imports = [(import ./hosts/work/home.nix)];
+              };
+            }
+          ];
+        };
+
       };
     };
 }
