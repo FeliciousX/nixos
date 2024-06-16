@@ -15,7 +15,7 @@ in
 
   time.timeZone = "Australia/Melbourne";
 
-  system.stateVersion = "23.11"; # never change this value #
+  system.stateVersion = "23.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
 
   # ######## #
   # Language #
@@ -44,7 +44,7 @@ in
   console.keyMap = "us";
 
   # ##### #
-  # fonts #
+  # Fonts #
   # ##### #
 
   fonts.packages = with pkgs; [
@@ -119,7 +119,6 @@ in
   # Security #
   # ######## #
 
-  security.rtkit.enable = true;
   security.polkit.enable = true;
 
   networking.firewall.enable = true;
@@ -150,10 +149,18 @@ in
   services.printing.enable = true;
 
   # ##### #
-  # Sound #
+  # Media #
   # ##### #
 
+  security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # ######## #
   # Graphics #
@@ -172,17 +179,6 @@ in
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  # ######## #
-  # Pipewire #
-  # ######## #
-
-  services.pipewire.enable = true;
-  services.pipewire.alsa = {
-    enable = true;
-    support32Bit = true;
-  };
-  services.pipewire.pulse.enable = true;
 
   # ##### #
   # Shell #

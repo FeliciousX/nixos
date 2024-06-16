@@ -13,6 +13,7 @@
   # ##########.#
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5; # Limit the amount of configurations
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-bcd5bc8e-b885-4115-b190-07c3d9e7e0f6".device = "/dev/disk/by-uuid/bcd5bc8e-b885-4115-b190-07c3d9e7e0f6";
 
@@ -20,6 +21,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # ########## #
   # Partitions #
@@ -41,6 +43,10 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/b38607d3-580e-4b0e-9512-1fdb816e10c9"; }
     ];
+
+  # ############ #
+  # Architecture #
+  # ############ #
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
