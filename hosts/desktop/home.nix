@@ -136,22 +136,6 @@
 
   programs = import ../programs { pkgs = pkgs; };
 
-  # Theming
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    font = {
-      name = "Hack Font Mono Medium";
-    };                                        # Cursor is declared under home.pointerCursor
-  };
-
   systemd.user.targets.tray = {               # Tray.target can not be found when xsession is not enabled. This fixes the issue.
     Unit = {
       Description = "Home Manager System Tray";

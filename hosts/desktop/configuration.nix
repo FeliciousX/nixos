@@ -168,12 +168,27 @@ in
   # ##### #
 
   services.xserver.enable = true;
+  services.xserver.xkb.layout = "us";
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
+  # ####### #
+  # Theming #
+  # ####### #
+
+  gtk.enable = true;
+  gtk.theme = {
+    name = "Dracula";
+    package = pkgs.dracula-theme;
+  };
+  gtk.iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme;
+  };
+  gtk.font = {
+    name = "Hack Font Mono Medium";
+  };                                        # Cursor is declared under home.pointerCursor
 
   # ######## #
   # Pipewire #
