@@ -6,13 +6,10 @@
 	fish = import ../../modules-home-manager/fish;
 	git = import ../../modules-home-manager/git.nix;
 	helix = import ../../modules-home-manager/helix.nix { pkgs = pkgs; };
-	lazygit.enable = true;
+	lazygit = import ../../modules-home-manager/lazygit.nix;
 	lf = import ../../modules-home-manager/lf.nix;
+	nix-index = import ../../modules-home-manager/nix-index.nix;
 	nnn = import ../../modules-home-manager/nnn.nix;
-	nix-index = {
-		enable = true;
-		enableFishIntegration = true;
-	};
 	starship = import ../../modules-home-manager/starship.nix;
 	zellij = import ../../modules-home-manager/zellij.nix;
 }
