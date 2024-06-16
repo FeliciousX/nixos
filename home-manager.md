@@ -2,6 +2,7 @@ Interesting home-manager options
 
 ### yubikey
 
+`security.pam.yubico.enable = true`
 `pam.yubico.authorizedYubikeys.ids`
 
 ### aws
