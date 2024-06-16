@@ -9,6 +9,10 @@
         command = "${typescript-language-server}/bin/typescript-language-server";
         args = [ "--stdio" ];
       };
+
+      nil = {
+        command = "${pkgs.nil}/bin/nil";
+      };
     };
     language = [
       {
@@ -18,6 +22,7 @@
         formatter = {
           command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         };
+        language-servers = [ "nil" ];
       }
       {
         name = "erb";
