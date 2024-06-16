@@ -4,6 +4,7 @@
 		z = "zellij"; # TODO: check if zellij is enabled before setting abbr
 		zenucompose = "docker compose -f docker-compose.yml -f docker-compose.zenu.yml";
 		ga = "git add";
+		gb = "git branch";
 		gc = "git commit -v";
 		gcp = "git cherry-pick";
 		gcpa = "git cherry-pick --abort";
