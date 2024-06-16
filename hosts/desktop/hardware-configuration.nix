@@ -45,14 +45,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # ######## #
-  # Hardware #
+  # Firmware #
   # ######## #
 
   hardware.enableRedistributableFirmware = lib.mkDefault true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.pulseaudio.enable = lib.mkDefault false;
-  hardware.opengl.enable = lib.Mkdefault true;
-  hardware.opengl.driSupport = lib.Mkdefault true;
-  hardware.opengl.driSupport32Bit = lib.Mkdefault true;
-
 }

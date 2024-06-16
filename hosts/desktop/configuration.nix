@@ -71,8 +71,8 @@ in
   # Networking #
   # ########## #
 
+  networking.domain = "local";
   networking.networkmanager.enable = true;
-
   networking.extraHosts = 
     ''
       127.0.0.1 search-dashboards.local
@@ -148,6 +148,20 @@ in
   services.pcscd.enable = true;
 
   services.printing.enable = true;
+
+  # ##### #
+  # Sound #
+  # ##### #
+
+  hardware.pulseaudio.enable = false;
+
+  # ######## #
+  # Graphics #
+  # ######## #
+
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
