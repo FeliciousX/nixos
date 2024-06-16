@@ -173,23 +173,6 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # ####### #
-  # Theming #
-  # ####### #
-
-  gtk.enable = true;
-  gtk.theme = {
-    name = "Dracula";
-    package = pkgs.dracula-theme;
-  };
-  gtk.iconTheme = {
-    name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme;
-  };
-  gtk.font = {
-    name = "Hack Font Mono Medium";
-  };                                        # Cursor is declared under home.pointerCursor
-
   # ######## #
   # Pipewire #
   # ######## #

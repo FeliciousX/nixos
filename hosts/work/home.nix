@@ -1,10 +1,54 @@
-{ pkgs, user, ... }:
+{ pkgs, user, ... }@args:
 
 {
+  # ####### #
+  # Theming #
+  # ####### #
+
+  gtk.enable = true;
+  gtk.theme = {
+    # Cursor is declared under home.pointerCursor
+    name = "Dracula";
+    package = pkgs.dracula-theme;
+  };
+  gtk.iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme;
+  };
+  gtk.font = {
+    name = "Hack Font Mono Medium";
+  };
+
+  # ####### #
+  # Applets #
+  # ####### #
+
+  services.blueman-applet.enable = true;         # Bluetooth
+  services.flameshot.enable = true;              # Screenshot
+
+  programs = import ./programs.nix args;
+
+  # TODO: look at this
+  # Tray.target can not be found when xsession is not enabled. This fixes the issue.
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
  
+    # This will set cursor system-wide so applications can not choose their own
+    pointerCursor = {
+      gtk.enable = true;
+      name = "Dracula-cursors";
+      package = pkgs.dracula-theme;
+      size = 16;
+    };
+
     packages = with pkgs; [
       # Terminal
       bat
@@ -166,41 +210,6 @@
       mariadb
     ];
 
-    pointerCursor = {                         # This will set cursor system-wide so applications can not choose their own
-      gtk.enable = true;
-      name = "Dracula-cursors";
-      package = pkgs.dracula-theme;
-      size = 16;
-    };
-    stateVersion = "23.05";
-  };
-
-  programs = import ../programs { pkgs = pkgs; };
-
-  services = {                            # Applets
-    blueman-applet.enable = true;         # Bluetooth
-    flameshot.enable = true;              # Screenshot
-  };
-
-  gtk = {                                     # Theming
-    enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    font = {
-      name = "Hack Font Mono Medium";
-    };                                        # Cursor is declared under home.pointerCursor
-  };
-
-  systemd.user.targets.tray = {               # Tray.target can not be found when xsession is not enabled. This fixes the issue.
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
-    };
+    stateVersion = "23.05"; # NOTE: read docs on `home.stateVersion` in `man home-configuration.nix` before changing
   };
 }

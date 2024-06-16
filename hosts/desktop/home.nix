@@ -1,16 +1,48 @@
-{ pkgs, lib, user, ... }:
+{ pkgs, user, ... }@args:
 
 {
+  # ####### #
+  # Theming #
+  # ####### #
+
+  gtk.enable = true;
+  gtk.theme = {
+    # Cursor is declared under home.pointerCursor
+    name = "Dracula";
+    package = pkgs.dracula-theme;
+  };
+  gtk.iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme;
+  };
+  gtk.font = {
+    name = "Hack Font Mono Medium";
+  };
+
+  programs = import ./programs.nix args;
+
+  # TODO: look at this
+  # Tray.target can not be found when xsession is not enabled. This fixes the issue.
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
 
-    pointerCursor = {                         # This will set cursor system-wide so applications can not choose their own
+    # This will set cursor system-wide so applications can not choose their own
+    pointerCursor = {
       gtk.enable = true;
       name = "Dracula-cursors";
       package = pkgs.dracula-theme;
       size = 16;
     };
+
+    # Steam proton installation path #
     sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     };
@@ -125,22 +157,6 @@
       obs-studio       # Recording/Live Streaming
     ];
 
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man home-configuration.nix).
-    stateVersion = "23.05";
+    stateVersion = "23.05"; # NOTE: read docs on `home.stateVersion` in `man home-configuration.nix` before changing
   };
-
-  programs = import ../programs { pkgs = pkgs; };
-
-  systemd.user.targets.tray = {               # Tray.target can not be found when xsession is not enabled. This fixes the issue.
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
-    };
-  };
-  
 }
