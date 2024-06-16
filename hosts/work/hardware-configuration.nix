@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   # ##########.#
@@ -32,18 +33,19 @@
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXROOT";
+    {
+      device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXBOOT";
+    {
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/503740f9-fe89-4463-b675-ebb5a6117b9c"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/503740f9-fe89-4463-b675-ebb5a6117b9c"; }];
 
   # ######## #
   # Firmware #

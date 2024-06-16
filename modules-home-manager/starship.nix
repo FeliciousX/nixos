@@ -1,7 +1,7 @@
 {
-	enable = true;
-	enableFishIntegration = true;
-	settings = {
-		package.disabled = true;
-	};
+  enable = true;
+  enableFishIntegration = true;
+  settings = {
+    package.disabled = true;
+  };
 }

@@ -84,7 +84,7 @@ in
 
   networking.domain = "local";
   networking.networkmanager.enable = true;
-  networking.extraHosts = 
+  networking.extraHosts =
     ''
       127.0.0.1 search-dashboards.local
       127.0.0.1 mockserver.zenu.dv
@@ -224,9 +224,10 @@ in
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
 
-    openssh.authorizedKeys.keys = if config.services.openssh.enable then [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com"
-    ] else [];
+    openssh.authorizedKeys.keys =
+      if config.services.openssh.enable then [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com"
+      ] else [ ];
   };
 
   # ############ #
@@ -245,10 +246,10 @@ in
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs          = true
-      keep-derivations      = true
-    '';
+    experimental-features = nix-command flakes
+    keep-outputs          = true
+    keep-derivations      = true
+  '';
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
 }

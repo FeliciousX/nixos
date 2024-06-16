@@ -23,8 +23,8 @@
   # Applets #
   # ####### #
 
-  services.blueman-applet.enable = true;         # Bluetooth
-  services.flameshot.enable = true;              # Screenshot
+  services.blueman-applet.enable = true; # Bluetooth
+  services.flameshot.enable = true; # Screenshot
 
   programs = import ./programs.nix args;
 
@@ -40,7 +40,7 @@
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
- 
+
     # This will set cursor system-wide so applications can not choose their own
     pointerCursor = {
       gtk.enable = true;
@@ -54,7 +54,7 @@
       bat
       bitwarden-cli
       bottom
-      btop              # Resource Manager
+      btop # Resource Manager
       curlie
       delta
       dia
@@ -73,49 +73,49 @@
       procs
       pv
       ripgrep
-      tldr              # Helper
+      tldr # Helper
 
       # Video/Audio
       exiftool
       ffmpeg-full
-      vlc               # Media Player
+      vlc # Media Player
       spotify
 
       # Apps
-      firefox           # Browser
+      firefox # Browser
       vivaldi-ffmpeg-codecs
       #google-chrome     # Browser
 
       # File Management
       #gnome.file-roller # Archive Manager
-      okular            # PDF Viewer
+      okular # PDF Viewer
       #p7zip             # Zip Encryption
       #pcmanfm           # File Manager
-      rsync             # Syncer - $ rsync -r dir1/ dir2/
-      syncthing         # File Sync
+      rsync # Syncer - $ rsync -r dir1/ dir2/
+      syncthing # File Sync
       #unrar             # Rar Files
-      unzip             # Zip Files
-      zip               # Zip
+      unzip # Zip Files
+      zip # Zip
 
       # General configuration
-      git              # Repositories
-      ipfs              # protocol
+      git # Repositories
+      ipfs # protocol
       #killall          # Stop Applications
-      pciutils         # Computer Utility Info
-      pipewire         # Sound
+      pciutils # Computer Utility Info
+      pipewire # Sound
       #usbutils         # USB Utility Info
       #wacomtablet      # Wacom Tablet
-      wget             # Downloader
+      wget # Downloader
       #zsh              # Shell
 
       # General home-manager
       #alacritty         # Terminal Emulator
       #doom emacs       # Text Editor
-      dunst             # Notifications
+      dunst # Notifications
       #helix             # Text Editor
-      libnotify         # Dependency for Dunst
+      libnotify # Dependency for Dunst
       #neovim           # Text Editor
-      neovim            # Text Editor
+      neovim # Text Editor
       #rofi             # Menu
       #rofi-power-menu  # Power Menu
       #udiskie          # Auto Mounting
@@ -124,7 +124,7 @@
       yubioath-flutter
       #
       # Xorg configuration
-      xclip             # Console Clipboard
+      xclip # Console Clipboard
       #xorg.xev         # Input Viewer
       #xorg.xkill       # Kill Applications
       #xorg.xrandr      # Screen Settings
@@ -136,12 +136,12 @@
       #
       # Wayland configuration
       #autotiling       # Tiling Script
-      grim             # Image Grabber
+      grim # Image Grabber
       #slurp            # Region Selector
-      swappy           # Screenshot Editor
+      swappy # Screenshot Editor
       #swayidle         # Idle Management Daemon
       #wev              # Input Viewer
-      wl-clipboard     # Console Clipboard
+      wl-clipboard # Console Clipboard
       #wlr-randr        # Screen Settings
       #xwayland         # X for Wayland
       #
@@ -156,8 +156,8 @@
       #ansible          # Automation
       bitwarden
       #blueman          # Bluetooth
-      deluge           # Torrents
-      discord          # Chat
+      deluge # Torrents
+      discord # Chat
       #ffmpeg           # Video Support (dslr)
       gimp
       #gmtp             # Mount MTP (GoPro)
@@ -168,20 +168,20 @@
       #lutris           # Game Launcher
       #mkvtoolnix       # Matroska Tool
       #nvtop            # Videocard Top
-      obsidian          # journaling
-      orca              # Screen Reader
+      obsidian # journaling
+      orca # Screen Reader
       #plex-media-player# Media Player
       #prismlauncher    # MC Launcher
-      simple-scan      # Scanning
+      simple-scan # Scanning
       #sshpass          # Ansible dependency
       #steam            # Games
       # 
-      libreoffice      # Office Tools
+      libreoffice # Office Tools
       #light            # Display Brightness
       #simple-scan      # Scanning
       #
       # Flatpak
-      obs-studio       # Recording/Live Streaming
+      obs-studio # Recording/Live Streaming
 
       # tui apps
       graph-easy
@@ -202,7 +202,7 @@
       # version control
       gh
 
-      blueman          # Bluetooth
+      blueman # Bluetooth
 
       # Dependencies
       jdk11

@@ -76,7 +76,7 @@
       bat
       bitwarden-cli
       bottom
-      btop              # Resource Manager
+      btop # Resource Manager
       curlie
       delta
       dia
@@ -95,66 +95,66 @@
       procs
       pv
       ripgrep
-      tldr              # Helper
+      tldr # Helper
 
       # Video/Audio
       exiftool
       ffmpeg-full
-      vlc               # Media Player
+      vlc # Media Player
       spotify
 
       # Apps
-      firefox           # Browser
+      firefox # Browser
       #google-chrome     # Browser
 
       # File Management
-      okular            # PDF Viewer
+      okular # PDF Viewer
       #p7zip             # Zip Encryption
-      rsync             # Syncer - $ rsync -r dir1/ dir2/
-      syncthing         # File Sync
-      unrar             # Rar Files
-      unzip             # Zip Files
-      zip               # Zip
+      rsync # Syncer - $ rsync -r dir1/ dir2/
+      syncthing # File Sync
+      unrar # Rar Files
+      unzip # Zip Files
+      zip # Zip
 
       # General configuration
-      git              # Repositories
-      ipfs              # protocol
-      pciutils         # Computer Utility Info
-      pipewire         # Sound
+      git # Repositories
+      ipfs # protocol
+      pciutils # Computer Utility Info
+      pipewire # Sound
       #usbutils         # USB Utility Info
-      wget             # Downloader
+      wget # Downloader
 
       # General home-manager
-      dunst             # Notifications
-      libnotify         # Dependency for Dunst
+      dunst # Notifications
+      libnotify # Dependency for Dunst
       yubikey-agent
       yubikey-manager
       yubioath-flutter
       #
       # Xorg configuration
-      xclip             # Console Clipboard
+      xclip # Console Clipboard
       #
       # Wayland configuration
-      grim             # Image Grabber
-      swappy           # Screenshot Editor
-      wl-clipboard     # Console Clipboard
+      grim # Image Grabber
+      swappy # Screenshot Editor
+      wl-clipboard # Console Clipboard
       #
       # Wayland home-manager
       #
       # Desktop
       bitwarden
-      deluge           # Torrents
+      deluge # Torrents
       #discord          # Chat
       #ffmpeg           # Video Support (dslr)
       gimp
-      obsidian          # journaling
-      orca              # Screen Reader
-      simple-scan      # Scanning
+      obsidian # journaling
+      orca # Screen Reader
+      simple-scan # Scanning
 
-      libreoffice      # Office Tools
+      libreoffice # Office Tools
       #
       # Flatpak
-      obs-studio       # Recording/Live Streaming
+      obs-studio # Recording/Live Streaming
     ];
 
     stateVersion = "23.05"; # NOTE: read docs on `home.stateVersion` in `man home-configuration.nix` before changing

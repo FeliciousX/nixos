@@ -1,7 +1,7 @@
 { config, inputs, pkgs, unstable, lib, user, ... }:
 
 {
-  imports = [(import ./hardware-configuration.nix)]; 
+  imports = [ (import ./hardware-configuration.nix) ];
 
   networking.hostName = "tabantha";
 
@@ -78,7 +78,7 @@
 
   networking.domain = "local";
   networking.networkmanager.enable = true;
-  networking.extraHosts = 
+  networking.extraHosts =
     ''
       127.0.0.1 search-dashboards.local
       127.0.0.1 mockserver.zenu.dv
@@ -209,9 +209,10 @@
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
 
-    openssh.authorizedKeys.keys = if config.services.openssh.enable then [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG8dpG+gfvMJCjw92U9uewjaZA+0QGeRi/ir19RFDK9 fx@nixos"
-    ] else [];
+    openssh.authorizedKeys.keys =
+      if config.services.openssh.enable then [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG8dpG+gfvMJCjw92U9uewjaZA+0QGeRi/ir19RFDK9 fx@nixos"
+      ] else [ ];
   };
 
   # ############ #
@@ -230,9 +231,9 @@
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs          = true
-      keep-derivations      = true
-    '';
+    experimental-features = nix-command flakes
+    keep-outputs          = true
+    keep-derivations      = true
+  '';
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 }
