@@ -63,6 +63,17 @@
   # Networking #
   # ########## #
 
+  # LAN communication
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      userServices = true;
+    };
+  };
+
   systemd.services.NetworkManager-wait-online.enable = false;
 
   networking.domain = "local";
@@ -187,17 +198,6 @@
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
   services.auto-cpufreq.enable = true;
-
-  # Needed to find wireless printer
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {             # Needed for detecting the scanner
-      enable = true;
-      addresses = true;
-      userServices = true;
-    };
-  };
 
   # #### #
   # User #

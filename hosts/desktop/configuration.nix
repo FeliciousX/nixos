@@ -71,6 +71,17 @@ in
   # Networking #
   # ########## #
 
+  # LAN communication
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      userServices = true;
+    };
+  };
+
   networking.domain = "local";
   networking.networkmanager.enable = true;
   networking.extraHosts = 
