@@ -26,7 +26,8 @@
 
   programs = import ../programs { pkgs = pkgs; };
 
-  gtk = {                                     # Theming
+  # Theming
+  gtk = {
     enable = true;
     theme = {
       name = "Dracula";
