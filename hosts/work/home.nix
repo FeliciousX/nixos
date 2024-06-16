@@ -70,7 +70,6 @@
       jq
       marksman
       neofetch
-      nil
       procs
       pv
       ripgrep
