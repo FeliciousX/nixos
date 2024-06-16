@@ -133,9 +133,9 @@ in
     ];
   };
 
-  # ####### #
-  # openssh #
-  # ####### #
+  # ### #
+  # SSH #
+  # ### #
 
   services.openssh.enable = true;
   services.openssh.openFirewall = true;
@@ -163,19 +163,21 @@ in
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
-  # Enable the X11 windowing system.
+  # ##### #
+  # Gnome #
+  # ##### #
+
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
-  };
+  services.xserver.xkb.layout = "us";
+
+  # ######## #
+  # Pipewire #
+  # ######## #
 
   services.pipewire.enable = true;
   services.pipewire.alsa = {
@@ -184,133 +186,42 @@ in
   };
   services.pipewire.pulse.enable = true;
 
+  # ##### #
+  # Shell #
+  # ##### #
+
   programs.fish.enable = true;
+
+  # ########## #
+  # Encryption #
+  # ########## #
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
 
-  # gaming
+  # ###### #
+  # Gaming #
+  # ###### #
+
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+
+  # #### #
+  # User #
+  # #### #
 
   users.users.${user} = {
     initialHashedPassword = "";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com" ];
 
-    packages = with pkgs; [
-      # tui apps
-      graph-easy
-      nmap
-      slides
-
-      # nice to have gui apps
-      chromium
-      darktable
-      dbeaver
-      mangohud
-      mysql-workbench
-      protonup
-      protonvpn-gui
-      telegram-desktop
-      vscode
-
-      # version control
-      gh
-
-      # Dependencies
-      jdk11
-      maven
-      mariadb
-
-      # Terminal
-      bat
-      bitwarden-cli
-      bottom
-      btop              # Resource Manager
-      curlie
-      delta
-      dia
-      direnv
-      du-dust
-      eza
-      fd
-      fzf
-      fzy
-      gping
-      gum
-      hyperfine
-      jq
-      marksman
-      neofetch
-      procs
-      pv
-      ripgrep
-      tldr              # Helper
-
-      # Video/Audio
-      exiftool
-      ffmpeg-full
-      vlc               # Media Player
-      spotify
-
-      # Apps
-      firefox           # Browser
-      #google-chrome     # Browser
-
-      # File Management
-      okular            # PDF Viewer
-      #p7zip             # Zip Encryption
-      rsync             # Syncer - $ rsync -r dir1/ dir2/
-      syncthing         # File Sync
-      unrar             # Rar Files
-      unzip             # Zip Files
-      zip               # Zip
-
-      # General configuration
-      git              # Repositories
-      ipfs              # protocol
-      pciutils         # Computer Utility Info
-      pipewire         # Sound
-      #usbutils         # USB Utility Info
-      wget             # Downloader
-
-      # General home-manager
-      dunst             # Notifications
-      libnotify         # Dependency for Dunst
-      yubikey-agent
-      yubikey-manager
-      yubioath-flutter
-      #
-      # Xorg configuration
-      xclip             # Console Clipboard
-      #
-      # Wayland configuration
-      grim             # Image Grabber
-      swappy           # Screenshot Editor
-      wl-clipboard     # Console Clipboard
-      #
-      # Wayland home-manager
-      #
-      # Desktop
-      bitwarden
-      deluge           # Torrents
-      #discord          # Chat
-      #ffmpeg           # Video Support (dslr)
-      gimp
-      obsidian          # journaling
-      orca              # Screen Reader
-      simple-scan      # Scanning
-
-      libreoffice      # Office Tools
-      #
-      # Flatpak
-      obs-studio       # Recording/Live Streaming
-    ];
+    openssh.authorizedKeys.keys = if config.services.openssh.enable then [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com"
+    ] else [];
   };
 
   # ############ #
