@@ -16,7 +16,7 @@
     pushf = "push --force-with-lease";
     # git wip
     wip = "commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"";
-    unwip = "!\"git log -n 1 | grep -q -c wip && git reset HEAD~1\"";
+    unwip = "!git log -n 1 | grep -q -c wip && git reset HEAD~1";
     # git add
     aa = "add --all";
     ap = "add --patch";
@@ -74,7 +74,7 @@
       "--abbrev=40 " +
       "--pretty=format:' %ad %h %s %cn <%ce> %G?' | " +
       "git name-rev --stdin --always --name-only | " +
-      ''awk 'BEGIN { FS=" "; OFS=" "; } { ''$4 = substr(''$4, 1, 50); print ''$0; }' | '' +
+      "awk 'BEGIN { FS=\" \"; OFS=\" \"; } { $4 = substr($4, 1, 50); print $0; }' | " +
       "column -s' ' -t";
     lg = "log --graph";
     lo = "log --oneline";
