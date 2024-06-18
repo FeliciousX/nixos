@@ -3,6 +3,7 @@
 {
   enable = true;
   defaultEditor = true;
+  themes = import ./themes.nix;
   languages = {
     language-server = {
       typescript-language-server = with pkgs.nodePackages; {
@@ -52,7 +53,7 @@
     ];
   };
   settings = {
-    theme = "dracula";
+    theme = "dracula-transparent";
 
     editor.mouse = true;
     editor.line-number = "relative";

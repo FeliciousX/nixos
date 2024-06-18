@@ -5,7 +5,7 @@
   atuin = import ../../modules-home-manager/atuin.nix;
   fish = import ../../modules-home-manager/fish;
   git = import ../../modules-home-manager/git.nix;
-  helix = import ../../modules-home-manager/helix.nix { pkgs = pkgs; };
+  helix = import ../../modules-home-manager/helix/helix.nix { pkgs = pkgs; };
   lazygit = import ../../modules-home-manager/lazygit.nix;
   lf = import ../../modules-home-manager/lf.nix;
   nix-index = import ../../modules-home-manager/nix-index.nix;
