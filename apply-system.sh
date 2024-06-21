@@ -1,5 +1,5 @@
 #!/bin/sh
-pushd ~/.dotfiles
-echo "sudo nixos-rebuild switch --flake .#"
-sudo nixos-rebuild switch --flake .#
+pushd /etc/nixos
+echo "sudo nixos-rebuild switch --flake .#$1"
+sudo nixos-rebuild switch --flake .#$1
 popd
