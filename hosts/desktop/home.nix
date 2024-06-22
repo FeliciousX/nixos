@@ -144,7 +144,7 @@
       # Desktop
       bitwarden
       deluge # Torrents
-      #discord          # Chat
+      discord # Chat
       #ffmpeg           # Video Support (dslr)
       gimp
       obsidian # journaling
