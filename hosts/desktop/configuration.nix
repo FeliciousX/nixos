@@ -15,7 +15,7 @@ in
 
   time.timeZone = "Australia/Melbourne";
 
-  system.stateVersion = "23.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
+  system.stateVersion = "24.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
 
   # ######## #
   # Language #
