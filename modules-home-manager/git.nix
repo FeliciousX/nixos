@@ -4,6 +4,7 @@
   userEmail = "hello@feliciousx.dev";
   signing = {
     key = "6983E79E35A1E9BF2DDD415447AA4884B840A95F";
+    signByDefault = true;
   };
   includes = [
     { path = "~/.gitconfig"; }
