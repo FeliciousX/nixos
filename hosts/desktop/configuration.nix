@@ -54,6 +54,7 @@ in
     noto-fonts-extra
     nerdfonts
     hack-font
+    ibm-plex
   ];
 
   fonts.fontconfig = { antialias = lib.mkDefault true; };
