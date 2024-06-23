@@ -67,11 +67,6 @@
       # version control
       gh
 
-      # Dependencies
-      jdk11
-      maven
-      mariadb
-
       # Terminal
       bat
       bitwarden-cli
@@ -86,8 +81,8 @@
       fd
       fzf
       fzy
+      glow
       gping
-      gum
       hyperfine
       jq
       marksman
