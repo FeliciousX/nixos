@@ -2,11 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, unstable, user, ... }:
-let
-  lib = pkgs.lib;
-in
-{
+{ config, pkgs, lib, inputs, user, unstable, ... }: {
   imports = [
     ./hardware-configuration.nix
   ];

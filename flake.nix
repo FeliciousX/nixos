@@ -53,9 +53,7 @@
               home-manager.extraSpecialArgs = {
                 inherit user system pkgs unstable inputs;
               };
-              home-manager.users.${user} = {
-                imports = [ (import ./hosts/desktop/home.nix) ];
-              };
+              home-manager.users.${user} = import ./hosts/desktop/home.nix;
             }
           ];
         };
