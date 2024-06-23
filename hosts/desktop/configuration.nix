@@ -87,7 +87,7 @@ in
   networking.networkmanager.enable = true;
   networking.extraHosts =
     ''
-      127.0.0.1 search-dashboards.local
+      127.0.0.1 dashboards.search.zenu.com.au
       127.0.0.1 mockserver.zenu.dv
       127.0.0.1 zenu.dv
       127.0.0.1 www.zenu.dv
@@ -97,8 +97,10 @@ in
       127.0.0.1 search.zenu.dv
       127.0.0.1 memcached.zenu.dv
       127.0.0.1 redis.zenu.dv
+      127.0.0.1 localstack.zenu.dv
+      127.0.0.1 rev-dev.s3.localstack.zenu.dv
+      127.0.0.1 rev-images-dev.s3.localstack.zenu.dv
       127.0.0.1 tunnel.zenu.dv
-      127.0.0.1 s3.zenu.dv
       127.0.0.1 zenu.test
       127.0.0.1 www.zenu.test
       127.0.0.1 subzero.dv
@@ -125,6 +127,8 @@ in
       127.0.0.1 rural.braavos.dv
       127.0.0.1 www.rural.braavos.dv
       127.0.0.1 dev.developerrealestateview.com.au
+      127.0.0.1 ftp.xml-imports.westeros.dv
+      127.0.0.1 sqs.ap-southeast-2.localstack.zenu.dv
     '';
 
   # ######## #
