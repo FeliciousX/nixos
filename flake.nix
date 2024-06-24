@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }@inputs:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager }:
     let
       user = "fx";
       system = "x86_64-linux";

@@ -1,10 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, inputs, user, unstable, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./yubikey.nix
   ];
 
   networking.hostName = "hyrule";
@@ -144,14 +141,6 @@
     ];
   };
 
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  security.pam.u2f.enable = true;
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-
   # ### #
   # SSH #
   # ### #
@@ -162,9 +151,6 @@
     PasswordAuthentication = false;
     PermitRootLogin = "no";
   };
-
-  # PCSC-Lite daemon, to access smart cards using SCard API (PC/SC)
-  services.pcscd.enable = true;
 
   services.printing.enable = true;
 

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ./hardware-configuration.nix)
+    ./hardware-configuration.nix
     ./yubikey.nix
   ];
 
