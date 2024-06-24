@@ -7,6 +7,7 @@
       p = ":paste; clear";
       f = "$hx $(fzf)";
       "<c-f>" = ":fzf_jump";
+      gs = ":fzf_search";
     };
     commands = {
       move-parent = ''''${{
@@ -24,6 +25,16 @@
                 res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
                 lf -remote "send $id $cmd \"$res\""
             fi
+      }}'';
+      fzf_search = ''''${{
+        RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+        res="$(
+          FZF_DEFAULT_COMMAND="$RG_PREFIX ''''''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+        )"
+        [ -n "$res" ] && lf -remote "send $id select \"$res\""
       }}'';
     };
   };
