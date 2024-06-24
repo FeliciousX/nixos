@@ -1,7 +1,10 @@
 { config, inputs, pkgs, unstable, lib, user, ... }:
 
 {
-  imports = [ (import ./hardware-configuration.nix) ];
+  imports = [
+    (import ./hardware-configuration.nix)
+    ./yubikey.nix
+  ];
 
   networking.hostName = "tabantha";
 
@@ -142,23 +145,6 @@
     ];
   };
 
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  security.pam.u2f.enable = true;
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-
-  services.udev.extraRules = ''
-    ACTION=="remove",\
-     ENV{ID_BUS}=="usb",\
-     ENV{ID_MODEL_ID}=="0407",\
-     ENV{ID_VENDOR_ID}=="1050",\
-     ENV{ID_VENDOR}=="Yubico",\
-     RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
-  '';
-
   # ### #
   # SSH #
   # ### #
@@ -169,9 +155,6 @@
     PasswordAuthentication = false;
     PermitRootLogin = "no";
   };
-
-  # PCSC-Lite daemon, to access smart cards using SCard API (PC/SC)
-  services.pcscd.enable = true;
 
   services.printing.enable = true;
 
