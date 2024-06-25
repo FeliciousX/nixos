@@ -1,10 +1,11 @@
-{ config, inputs, pkgs, unstable, lib, user, ... }:
+{ inputs, pkgs, unstable, lib, user, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ./yubikey.nix
     ./bluetooth.nix
+    ./ssh.nix
   ];
 
   networking.hostName = "tabantha";
@@ -67,6 +68,8 @@
   # ########## #
   # Networking #
   # ########## #
+
+  services.printing.enable = true;
 
   # LAN communication
   services.avahi = {
@@ -146,19 +149,6 @@
     ];
   };
 
-  # ### #
-  # SSH #
-  # ### #
-
-  services.openssh.enable = true;
-  services.openssh.openFirewall = true;
-  services.openssh.settings = {
-    PasswordAuthentication = false;
-    PermitRootLogin = "no";
-  };
-
-  services.printing.enable = true;
-
   # ##### #
   # Media #
   # ##### #
@@ -214,11 +204,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
-
-    openssh.authorizedKeys.keys =
-      if config.services.openssh.enable then [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPG8dpG+gfvMJCjw92U9uewjaZA+0QGeRi/ir19RFDK9 fx@nixos"
-      ] else [ ];
   };
 
   # ############ #
