@@ -1,7 +1,8 @@
-{ config, pkgs, lib, inputs, user, unstable, ... }: {
+{ pkgs, lib, inputs, user, unstable, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./yubikey.nix
+    ./ssh.nix
   ];
 
   networking.hostName = "hyrule";
@@ -64,6 +65,8 @@
   # ########## #
   # Networking #
   # ########## #
+
+  services.printing.enable = true;
 
   # LAN communication
   services.avahi = {
@@ -141,19 +144,6 @@
     ];
   };
 
-  # ### #
-  # SSH #
-  # ### #
-
-  services.openssh.enable = true;
-  services.openssh.openFirewall = true;
-  services.openssh.settings = {
-    PasswordAuthentication = false;
-    PermitRootLogin = "no";
-  };
-
-  services.printing.enable = true;
-
   # ##### #
   # Media #
   # ##### #
@@ -218,11 +208,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
-
-    openssh.authorizedKeys.keys =
-      if config.services.openssh.enable then [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzBvauAQglStcoos5RaFC6ITuOavBYksmuNtbOW2R+o xps15@feliciousx.com"
-      ] else [ ];
   };
 
   # ############ #
