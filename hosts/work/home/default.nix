@@ -8,7 +8,7 @@
   # Applets #
   # ####### #
 
-  services.blueman-applet.enable = true; # Bluetooth
+  services.blueman-applet.enable = true; # bluetooth
   services.flameshot.enable = true; # Screenshot
 
   # TODO: look at this

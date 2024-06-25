@@ -30,8 +30,6 @@
     telegram-desktop
     vscode
 
-    blueman # Bluetooth
-
     # Terminal
     bat
     bitwarden-cli

@@ -55,13 +55,6 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   services.fwupd.enable = true; # auto firmware updater
 
-  # ######### #
-  # Bluetooth #
-  # ######### #
-
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   # ############ #
   # Architecture #
   # ############ #

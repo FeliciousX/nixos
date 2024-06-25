@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./yubikey.nix
+    ./bluetooth.nix
   ];
 
   networking.hostName = "tabantha";
