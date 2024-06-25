@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
-  hx = pkgs.lib.getExe pkgs.helix;
-  fzf = pkgs.lib.getExe pkgs.fzf;
-  rg = pkgs.lib.getExe pkgs.ripgrep;
+  hx = lib.getExe pkgs.helix;
+  fzf = lib.getExe pkgs.fzf;
+  rg = lib.getExe pkgs.ripgrep;
 in
 {
   programs.lf = {
