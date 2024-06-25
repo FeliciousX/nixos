@@ -30,9 +30,6 @@
     telegram-desktop
     vscode
 
-    # version control
-    gh
-
     blueman # Bluetooth
 
     # Terminal
@@ -80,7 +77,6 @@
     zip # Zip
 
     # General configuration
-    git # Repositories
     ipfs # protocol
     pciutils # Computer Utility Info
     pipewire # Sound
