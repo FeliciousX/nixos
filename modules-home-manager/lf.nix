@@ -1,3 +1,9 @@
+{ pkgs, ... }:
+let
+  hx = pkgs.lib.getExe pkgs.helix;
+  fzf = pkgs.lib.getExe pkgs.fzf;
+  rg = pkgs.lib.getExe pkgs.ripgrep;
+in
 {
   programs.lf = {
     enable = true;
@@ -5,7 +11,7 @@
       J = "move-parent down";
       K = "move-parent up";
       p = ":paste; clear";
-      f = "$hx $(fzf)";
+      f = "\$${hx} $(${fzf})";
       "<c-f>" = ":fzf_jump";
       gs = ":fzf_search";
     };
@@ -15,7 +21,7 @@
         lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
       }}'';
       fzf_jump = ''''${{
-        res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+        res="$(find . -maxdepth 1 | ${fzf} --reverse --header='Jump to location')"
             if [ -n "$res" ]; then
                 if [ -d "$res" ]; then
                     cmd="cd"
@@ -27,10 +33,10 @@
             fi
       }}'';
       fzf_search = ''''${{
-        RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+        RG_PREFIX="${rg} --column --line-number --no-heading --color=always --smart-case "
         res="$(
           FZF_DEFAULT_COMMAND="$RG_PREFIX ''''''" \
-            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            ${fzf} --bind "change:reload:$RG_PREFIX {q} || true" \
             --ansi --layout=reverse --header 'Search in files' \
             | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
         )"
