@@ -20,8 +20,8 @@
     # allow login from my yubikeys
     file.".config/Yubico/u2f_keys".text = builtins.concatStringsSep ":" [
       user
-      "yCtdvTPGRzzcKnKguGQyYDGh76zw/WvOOqq98kFwrRnokZ4E/yD286IVI6p/gfTJh3yI2JJULXus/IgjF915YQ==,zIXT8okRliZVNtz+sXUrXAiLbHMHqT5M/z3gFj958TwV9HW1nEjXl4GmdcBW+W/425PYTNlho2mcfsUosd2k1g==,es256,+presence"
-      "y9t02+6rUbMwSXYgxDzgVR6k+CNRetw/7VKGFqqa8DTnp1Dei3o/smhdNwY+U/eec9MaZzZhRI1NrgvKnkzg5A==,bdRq1NMQzxL3TbUQ30yf7M6B+nFurZV7d6UJ9mOckgxZqwp8lh5fkCLs+p1hTO/U5irhua37prYy1VvwEjPVxA==,es256,+presence"
+      "ZfUZ027k+7i904j1kl989cijmkwNXX2eX7nulsiZKJqCBtmQ1V0cmjDqMgf4G8EJnWRN05WSkpGkYXyxqsuW4w==,/8phG4CBREiu+p51iCfu9X72R9nU5ftXCrJaWxNjli13ZleHTo4tap0nAJhVq48CazhDE0eGGYsGeGTtYcUnAw==,es256,+presence"
+      "dHYTq1lCa6zmTj4oOsExLxNmGoLsVzvisl++jlopwmO09qJAtMrlXeemX8I6q4JRA0kahjZzckMsgR2CfJyyfw==,d9JUMfu8mZ2KTBR7aXy3nVaJhjNUZ8PLV8BwhtmI/UC+myyh3ErGtAG+3r/Xim/+aeccMcl+OaQKAuE5yVQoCA==,es256,+presence"
     ];
 
     # Steam proton installation path #
