@@ -176,6 +176,10 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #xdg.portal.enable = true;
+  #xdg.portal.wlr.enable = true;
+
   # ##### #
   # Shell #
   # ##### #
