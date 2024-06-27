@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, user, unstable, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./graphics.nix
     ./yubikey.nix
     ./ssh.nix
   ];
@@ -158,28 +159,6 @@
     jack.enable = true;
   };
 
-  # ######## #
-  # Graphics #
-  # ######## #
-
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-
-    powerManagement.enable = false;
-
-    open = false; # unfortunate
-
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-
   # ##### #
   # Gnome #
   # ##### #
@@ -190,8 +169,6 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  #xdg.portal.enable = true;
-  #xdg.portal.wlr.enable = true;
 
   # ##### #
   # Shell #
