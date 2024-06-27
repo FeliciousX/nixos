@@ -18,14 +18,17 @@
       config = {
         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
           "discord"
+          "nvidia-persistenced"
+          "nvidia-settings"
+          "nvidia-x11"
           "obsidian"
           "spotify"
           "steam"
           "steam-original"
           "steam-run"
+          "unrar"
           "vivaldi"
           "vscode"
-          "unrar"
         ];
         permittedInsecurePackages = lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
       };
