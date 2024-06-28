@@ -54,6 +54,7 @@
     procs
     pv
     ripgrep
+    ripdrag
     tldr # Helper
 
     # Video/Audio

@@ -14,6 +14,7 @@
   ];
 
   home.packages = with pkgs; [
+    ashpd-demo
     # tui apps
     graph-easy
     nmap
@@ -53,6 +54,7 @@
     procs
     pv
     ripgrep
+    ripdrag
     tldr # Helper
 
     # Video/Audio

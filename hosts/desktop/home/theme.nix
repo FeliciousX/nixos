@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   gtk.enable = true;
   gtk.theme = {
-    # Cursor is declared under home.pointerCursor
     name = "Dracula";
     package = pkgs.dracula-theme;
   };
