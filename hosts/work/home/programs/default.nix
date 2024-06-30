@@ -80,7 +80,7 @@
     ipfs # protocol
     pciutils # Computer Utility Info
     pipewire # Sound
-    #usbutils         # USB Utility Info
+    usbutils # USB Utility Info
     wget # Downloader
 
     # General home-manager
