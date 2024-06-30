@@ -6,6 +6,7 @@
     ./yubikey.nix
     ./bluetooth.nix
     ./ssh.nix
+    ./distributed-build.nix
   ];
 
   networking.hostName = "tabantha";
