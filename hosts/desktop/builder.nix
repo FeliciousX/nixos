@@ -1,6 +1,8 @@
-{ config, lib, user, ... }:
+{ ... }:
 
 {
+  nix.settings.trusted-users = [ "nixremote" ];
+
   users.users.nixremote = {
     isNormalUser = true;
 

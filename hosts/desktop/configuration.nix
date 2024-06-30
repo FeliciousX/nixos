@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, user, unstable, ... }: {
+{ pkgs, lib, inputs, user, unstable, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./graphics.nix
