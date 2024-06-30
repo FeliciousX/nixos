@@ -4,6 +4,7 @@
     ./graphics.nix
     ./yubikey.nix
     ./ssh.nix
+    ./builder.nix
   ];
 
   networking.hostName = "hyrule";
