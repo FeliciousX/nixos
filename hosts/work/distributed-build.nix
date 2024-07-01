@@ -1,4 +1,4 @@
-{ config, lib, user, ... }:
+{ ... }:
 
 {
   nix.distributedBuilds = true;
