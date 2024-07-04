@@ -52,6 +52,10 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+  # allow cross compilation
+  boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
+
+
   # ######## #
   # Firmware #
   # ######## #

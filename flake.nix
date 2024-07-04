@@ -81,6 +81,27 @@
           ];
         };
 
+        kokiri-sd-image = lib.nixosSystem {
+          system = "arm7l-linux";
+          specialArgs = {
+            inherit unstable inputs user;
+          };
+          modules = [
+            "${pkgs}/nixos/modules/installer/sd-card/sd-image-armv7l-multiplatform-installer.nix"
+
+            ./hosts/kokiri/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit user system pkgs unstable inputs;
+              };
+              home-manager.users.${user} = import ./hosts/kokiri/home;
+            }
+          ];
+        };
       };
     };
 }
