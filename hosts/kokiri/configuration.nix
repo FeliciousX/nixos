@@ -42,13 +42,13 @@ in
   # systemPackages
   environment.systemPackages = with pkgs; [
     curl
-    docker-compose
     helix
     iptables
     neovim
     python3
     vim
     wget
+    inetutils
   ];
 
   # Some sample service.
@@ -62,8 +62,6 @@ in
     enable = true;
   };
 
-
-  virtualisation.docker.enable = true;
 
   networking.firewall.enable = false;
 
@@ -111,7 +109,7 @@ in
     name = user;
     group = user;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" ];
   };
 
   system.stateVersion = "23.05";
