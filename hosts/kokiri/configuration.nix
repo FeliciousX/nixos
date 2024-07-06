@@ -8,7 +8,8 @@ in
   imports = [
     ./ssh.nix
     ./distributed-build.nix
-    ./blocky.nix
+    ./adguardhome.nix
+    #./blocky.nix
   ];
 
   # NixOS wants to enable GRUB by default

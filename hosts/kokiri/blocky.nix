@@ -4,16 +4,26 @@
   services.blocky.enable = lib.mkDefault true;
 
   services.blocky.settings = {
-    ports.dns = 53;
+    ports = {
+      dns = 53;
+      tls = 853;
+      https = 443;
+      http = 4000;
+    };
     upstreams.groups.default = [
-      "https://cloudflare-dns.com/dns-query"
+      "tcp+udp:1.1.1.1"
+      "https://1.1.1.1/dns-query"
     ];
 
-    # For initially solving DoH/DoT Requests when no system Resolver is available.
-    bootstrapDns = {
-      upstream = "https://cloudflare-dns.com/dns-query";
-      ips = [ "1.1.1.1" "1.0.0.1" ];
+    log = {
+      level = "info";
     };
+
+    # For initially solving DoH/DoT Requests when no system Resolver is available.
+    bootstrapDns = [
+      "tcp+udp:1.1.1.1"
+      "https://1.1.1.1/dns-query"
+    ];
 
     #Enable Blocking of certian domains.
     blocking = {
