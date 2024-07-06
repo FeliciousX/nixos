@@ -55,6 +55,10 @@
 
   fonts.fontconfig = { antialias = lib.mkDefault true; };
 
+  environment.systemPackages = with pkgs; [
+    nix-output-monitor
+  ];
+
   # ###### #
   # docker #
   # ###### #

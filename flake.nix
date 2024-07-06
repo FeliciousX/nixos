@@ -38,69 +38,76 @@
       };
       unstable = import nixpkgs-unstable { inherit system; };
       lib = nixpkgs.lib;
+
+      hyrule = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit user system pkgs unstable inputs;
+        };
+        modules = [
+          ./hosts/desktop/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit user system pkgs unstable inputs;
+            };
+            home-manager.users.${user} = import ./hosts/desktop/home;
+          }
+        ];
+      };
+
+      tabantha = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit unstable inputs user;
+        };
+        modules = [
+          ./hosts/work/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit user system pkgs unstable inputs;
+            };
+            home-manager.users.${user} = import ./hosts/work/home;
+          }
+        ];
+      };
+
+      kokiri = lib.nixosSystem {
+        system = "armv7l-linux";
+        specialArgs = {
+          inherit unstable inputs user;
+        };
+        modules = [
+          ./hosts/kokiri/sd-image.nix
+          ./hosts/kokiri/configuration.nix
+
+          /*home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit user system pkgs unstable inputs;
+            };
+            home-manager.users.${user} = import ./hosts/kokiri/home;
+          }*/
+        ];
+      };
     in
-    {
+    rec {
       nixosConfigurations = {
-        desktop = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit user system pkgs unstable inputs;
-          };
-          modules = [
-            ./hosts/desktop/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit user system pkgs unstable inputs;
-              };
-              home-manager.users.${user} = import ./hosts/desktop/home;
-            }
-          ];
-        };
-
-        work = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit unstable inputs user;
-          };
-          modules = [
-            ./hosts/work/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit user system pkgs unstable inputs;
-              };
-              home-manager.users.${user} = import ./hosts/work/home;
-            }
-          ];
-        };
-
-        kokiri = lib.nixosSystem {
-          system = "armv7l-linux";
-          specialArgs = {
-            inherit unstable inputs user;
-          };
-          modules = [
-            ./hosts/kokiri/sd-image.nix
-            ./hosts/kokiri/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit user system pkgs unstable inputs;
-              };
-              home-manager.users.${user} = import ./hosts/kokiri/home;
-            }
-          ];
-        };
+        inherit hyrule;
+        inherit tabantha;
+        inherit kokiri;
+      };
+      nixosConfigurations.images = {
+        kokiri = nixosConfigurations.kokiri.config.system.build.sdImage;
       };
     };
 }

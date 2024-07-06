@@ -39,15 +39,16 @@ in
 
   networking.hostName = hostName;
 
+  # disable sound
+  sound.enable = false;
+  hardware.pulseaudio.enable = false;
+
   # systemPackages
   environment.systemPackages = with pkgs; [
     curl
-    helix
     iptables
-    neovim
-    python3
     vim
-    wget
+    #wget
     inetutils
   ];
 
@@ -61,7 +62,6 @@ in
   programs.fish = {
     enable = true;
   };
-
 
   networking.firewall.enable = false;
 
@@ -86,7 +86,7 @@ in
   **/
 
   networking.domain = "local";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
   networking.wireless.enable = false;
 
   # forwarding

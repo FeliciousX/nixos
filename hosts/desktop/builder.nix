@@ -12,4 +12,11 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDsUh9qG8190umG1Y3pMqu3YSFig+WS5stDpFOjWj/zA root@nixos"
       ];
   };
+
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 }
