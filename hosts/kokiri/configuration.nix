@@ -14,9 +14,6 @@ in
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  # !!! Set to specific linux kernel version
-  boot.kernelPackages = pkgs.linuxPackages;
-
   # Disable ZFS on kernel 6
   boot.supportedFilesystems = lib.mkForce [
     "vfat"
@@ -48,8 +45,7 @@ in
     docker-compose
     helix
     iptables
-    nvim
-    openvpn
+    neovim
     python3
     vim
     wget
@@ -79,18 +75,21 @@ in
   # Networking #
   # ########## #
 
-  networking = {
+  /**
+    networking = {
     interfaces.eth0 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.31.111";
         prefixLength = 24;
       }];
+      };
     };
-  };
+  **/
 
   networking.domain = "local";
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
 
   # forwarding
   boot.kernel.sysctl = {
@@ -106,6 +105,7 @@ in
     name = user;
   };
   users.users.${user} = {
+    isNormalUser = true;
     uid = 1000;
     home = "/home/${user}";
     name = user;

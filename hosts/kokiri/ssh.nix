@@ -5,7 +5,6 @@
   services.openssh.openFirewall = lib.mkDefault true;
   services.openssh.settings = {
     PasswordAuthentication = false;
-    PermitRootLogin = "no";
   };
 
   users.users.${user} = {

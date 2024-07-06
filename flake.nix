@@ -81,14 +81,13 @@
           ];
         };
 
-        kokiri-sd-image = lib.nixosSystem {
-          system = "arm7l-linux";
+        kokiri = lib.nixosSystem {
+          system = "armv7l-linux";
           specialArgs = {
             inherit unstable inputs user;
           };
           modules = [
-            "${pkgs}/nixos/modules/installer/sd-card/sd-image-armv7l-multiplatform-installer.nix"
-
+            ./hosts/kokiri/sd-image.nix
             ./hosts/kokiri/configuration.nix
 
             home-manager.nixosModules.home-manager
