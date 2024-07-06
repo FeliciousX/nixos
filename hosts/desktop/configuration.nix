@@ -74,6 +74,13 @@
   # Networking #
   # ########## #
 
+  networking = {
+    nameservers = [ "192.168.31.111" ];
+    dhcpcd.extraConfig = "nohook resolv.conf";
+  };
+
+  networking.domain = "local";
+
   services.printing.enable = true;
 
   # LAN communication
@@ -87,8 +94,6 @@
     };
   };
 
-  networking.domain = "local";
-  networking.networkmanager.enable = true;
   networking.extraHosts =
     ''
       127.0.0.1 dashboards.search.zenu.com.au
