@@ -82,21 +82,11 @@
       kokiri = lib.nixosSystem {
         system = "armv7l-linux";
         specialArgs = {
-          inherit unstable inputs user;
+          inherit nixpkgs;
         };
         modules = [
           ./hosts/kokiri/sd-image.nix
           ./hosts/kokiri/configuration.nix
-
-          /*home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit user system pkgs unstable inputs;
-            };
-            home-manager.users.${user} = import ./hosts/kokiri/home;
-          }*/
         ];
       };
     in
