@@ -1,5 +1,6 @@
 let
   hostName = "kokiri";
+  timeZone = "Australia/Melbourne";
 in
 { pkgs, lib, ... }:
 
@@ -7,6 +8,7 @@ in
   imports = [
     ./ssh.nix
     ./distributed-build.nix
+    ./blocky.nix
   ];
 
   # NixOS wants to enable GRUB by default
@@ -39,6 +41,8 @@ in
 
   networking.hostName = hostName;
 
+  time.timeZone = timeZone;
+
   # disable sound
   sound.enable = false;
   hardware.pulseaudio.enable = false;
@@ -52,16 +56,7 @@ in
     inetutils
   ];
 
-  # Some sample service.
-  # Use dnsmasq as internal LAN DNS resolver.
-  services.dnsmasq = {
-    enable = false;
-    settings.servers = [ "1.1.1.1" ];
-  };
-
-  programs.fish = {
-    enable = true;
-  };
+  programs.bash.enableCompletion = true;
 
   networking.firewall.enable = false;
 
@@ -73,17 +68,15 @@ in
   # Networking #
   # ########## #
 
-  /**
-    networking = {
-    interfaces.eth0 = {
+  networking = {
+    interfaces.enu1u1 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.31.111";
         prefixLength = 24;
       }];
-      };
     };
-  **/
+  };
 
   networking.domain = "local";
   networking.networkmanager.enable = false;
@@ -96,10 +89,10 @@ in
     "net.ipv4.tcp_ecn" = true;
   };
 
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.bash;
   users.mutableUsers = false;
   users.users.nixos = {
-    shell = pkgs.fish;
+    shell = pkgs.bash;
     extraGroups = [ "wheel" ];
   };
 
