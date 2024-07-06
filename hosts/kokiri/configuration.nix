@@ -1,7 +1,7 @@
 let
   hostName = "kokiri";
 in
-{ user, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -48,7 +48,7 @@ in
     curl
     iptables
     vim
-    #wget
+    wget
     inetutils
   ];
 
@@ -98,16 +98,7 @@ in
 
   users.defaultUserShell = pkgs.fish;
   users.mutableUsers = false;
-  users.groups.${user} = {
-    gid = 1000;
-    name = user;
-  };
-  users.users.${user} = {
-    isNormalUser = true;
-    uid = 1000;
-    home = "/home/${user}";
-    name = user;
-    group = user;
+  users.users.nixos = {
     shell = pkgs.fish;
     extraGroups = [ "wheel" ];
   };
