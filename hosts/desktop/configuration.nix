@@ -57,6 +57,7 @@
 
   environment.systemPackages = with pkgs; [
     nix-output-monitor
+    cifs-utils
     inetutils
     dig
   ];
