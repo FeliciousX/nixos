@@ -45,7 +45,7 @@
           inherit user system pkgs unstable inputs;
         };
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/hyrule/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -54,7 +54,7 @@
             home-manager.extraSpecialArgs = {
               inherit user system pkgs unstable inputs;
             };
-            home-manager.users.${user} = import ./hosts/desktop/home;
+            home-manager.users.${user} = import ./hosts/hyrule/home;
           }
         ];
       };
@@ -65,7 +65,7 @@
           inherit unstable inputs user;
         };
         modules = [
-          ./hosts/work/configuration.nix
+          ./hosts/tabantha/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -74,7 +74,7 @@
             home-manager.extraSpecialArgs = {
               inherit user system pkgs unstable inputs;
             };
-            home-manager.users.${user} = import ./hosts/work/home;
+            home-manager.users.${user} = import ./hosts/tabantha/home;
           }
         ];
       };
