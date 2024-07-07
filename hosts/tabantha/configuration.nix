@@ -1,38 +1,24 @@
 { inputs, pkgs, unstable, lib, user, ... }:
 
+let
+  hostName = "tabantha";
+  timeZone = "Australia/Melbourne";
+in
 {
   imports = [
     ./hardware-configuration.nix
+    ./language.nix
+    ./networking.nix
     ./yubikey.nix
     ./bluetooth.nix
     ./ssh.nix
     ./distributed-build.nix
   ];
 
-  networking.hostName = "tabantha";
-
-  time.timeZone = "Australia/Melbourne";
+  networking.hostName = hostName;
+  time.timeZone = timeZone;
 
   system.stateVersion = "23.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
-
-  # ######## #
-  # Language #
-  # ######## #
-
-  i18n.defaultLocale = "en_GB.UTF-8";
-  i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ uniemoji libpinyin ];
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_AU.UTF-8";
-    LC_IDENTIFICATION = "en_AU.UTF-8";
-    LC_MEASUREMENT = "en_AU.UTF-8";
-    LC_MONETARY = "en_AU.UTF-8";
-    LC_NAME = "en_AU.UTF-8";
-    LC_NUMERIC = "en_AU.UTF-8";
-    LC_PAPER = "en_AU.UTF-8";
-    LC_TELEPHONE = "en_AU.UTF-8";
-    LC_TIME = "en_AU.UTF-8";
-  };
 
   # ####### #
   # Console #
@@ -66,72 +52,9 @@
     package = unstable.pkgs.docker;
   };
 
-  # ########## #
-  # Networking #
-  # ########## #
-
   services.printing.enable = true;
 
-  # LAN communication
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      userServices = true;
-    };
-  };
-
-  systemd.services.NetworkManager-wait-online.enable = false;
-
   networking.domain = "local";
-  networking.networkmanager.enable = true;
-  networking.extraHosts =
-    ''
-      127.0.0.1 dashboards.search.zenu.com.au
-      127.0.0.1 mockserver.zenu.dv
-      127.0.0.1 zenu.dv
-      127.0.0.1 www.zenu.dv
-      127.0.0.1 zone.zenu.dv
-      127.0.0.1 db.zenu.dv
-      127.0.0.1 replica.db.zenu.dv
-      127.0.0.1 search.zenu.dv
-      127.0.0.1 memcached.zenu.dv
-      127.0.0.1 redis.zenu.dv
-      127.0.0.1 localstack.zenu.dv
-      127.0.0.1 rev-dev.s3.localstack.zenu.dv
-      127.0.0.1 rev-images-dev.s3.localstack.zenu.dv
-      127.0.0.1 tunnel.zenu.dv
-      127.0.0.1 zenu.test
-      127.0.0.1 www.zenu.test
-      127.0.0.1 subzero.dv
-      127.0.0.1 www.subzero.dv
-      127.0.0.1 subzero.test
-      127.0.0.1 www.subzero.test
-      127.0.0.1 e2e.subzero.test
-      127.0.0.1 dev.zenu.com.au
-      127.0.0.1 db.westeros.dv
-      127.0.0.1 search.braavos.dv
-      127.0.0.1 search.westeros.dv
-      127.0.0.1 memcached.westeros.dv
-      127.0.0.1 westeros.dv
-      127.0.0.1 www.westeros.dv
-      127.0.0.1 www.westeros.test
-      127.0.0.1 admin.westeros.dv
-      127.0.0.1 braavos.dv
-      127.0.0.1 www.braavos.dv
-      127.0.0.1 www.braavos.test
-      127.0.0.1 business.braavos.dv
-      127.0.0.1 www.business.braavos.dv
-      127.0.0.1 holiday.braavos.dv
-      127.0.0.1 www.holiday.braavos.dv
-      127.0.0.1 rural.braavos.dv
-      127.0.0.1 www.rural.braavos.dv
-      127.0.0.1 dev.developerrealestateview.com.au
-      127.0.0.1 ftp.xml-imports.westeros.dv
-      127.0.0.1 sqs.ap-southeast-2.localstack.zenu.dv
-    '';
 
   # ######## #
   # Security #
@@ -148,6 +71,15 @@
     ignoreIP = [
       "192.168.31.0/24" # TODO: divide my network subnets for homelab
     ];
+  };
+
+  # ########## #
+  # Encryption #
+  # ########## #
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # ##### #
@@ -173,21 +105,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # ##### #
-  # Shell #
-  # ##### #
-
-  programs.fish.enable = true;
-
-  # ########## #
-  # Encryption #
-  # ########## #
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   # ################ #
   # Power Management #
   # ################ #
@@ -195,6 +112,12 @@
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
   services.auto-cpufreq.enable = true;
+
+  # ##### #
+  # Shell #
+  # ##### #
+
+  programs.fish.enable = true;
 
   # #### #
   # User #
