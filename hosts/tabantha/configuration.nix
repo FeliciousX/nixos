@@ -9,6 +9,7 @@ in
     ./hardware-configuration.nix
     ./language.nix
     ./networking.nix
+    ./blocky.nix
     ./yubikey.nix
     ./bluetooth.nix
     ./ssh.nix
@@ -112,6 +113,17 @@ in
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
   services.auto-cpufreq.enable = true;
+
+  # ## #
+  # nh #
+  # ## #
+
+  environment.systemPackages = builtins.attrValues {
+    inherit (unstable) nh;
+  };
+
+  # TODO: use a variable
+  environment.variables.FLAKE = "/etc/nixos";
 
   # ##### #
   # Shell #
