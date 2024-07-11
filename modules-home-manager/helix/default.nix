@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, system, pkgs, ... }:
 
 {
   programs.helix = {
@@ -15,6 +15,18 @@
         nil = {
           command = "${pkgs.nil}/bin/nil";
         };
+
+        scls = {
+          command = "${inputs.simple-completion-language-server.packages.${system}.default}";
+          config = {
+            max_completion_items = 20; # set max completion results len for each group: words, snippets, unicode-input
+            snippets_first = true; # completions will return before snippets by default
+            feature_words = true; # enable completion by word
+            feature_snippets = true; # enable snippets
+            feature_unicode_input = true; # enable "unicode input"
+            feature_paths = true; # enable path completion
+          };
+        };
       };
       language = [
         {
@@ -27,29 +39,38 @@
           language-servers = [ "nil" ];
         }
         {
-          name = "erb";
-          auto-format = true;
-          file-types = [ "cfm" ];
-          indent = {
-            tab-width = 2;
-            unit = "\t";
-          };
-        }
-        {
-          name = "java";
-          file-types = [ "cfc" ];
-          indent = {
-            tab-width = 2;
-            unit = "\t";
-          };
-        }
-        {
           name = "typescript";
           auto-format = true;
         }
         {
           name = "tsx";
           auto-format = true;
+        }
+        {
+          name = "coldfusion";
+          scope = "source.cfc";
+          injection-regex = "cfc";
+          file-types = [ "cfc" ];
+          roots = [ "box.json" ];
+          language-servers = [ "scls" ];
+          grammar = "java";
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
+        }
+        {
+          name = "cfml";
+          scope = "text.cfml";
+          injection-regex = "cfml";
+          file-types = [ "cfm" ];
+          roots = [ "index.cfm" ];
+          language-servers = [ "scls" ];
+          grammar = "embedded-template";
+          indent = {
+            tab-width = 2;
+            unit = "\t";
+          };
         }
       ];
     };
