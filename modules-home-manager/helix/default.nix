@@ -1,5 +1,7 @@
 { inputs, system, pkgs, ... }:
-
+let
+  scls = inputs.simple-completion-language-server.defaultPackage.${system};
+in
 {
   programs.helix = {
     enable = true;
@@ -17,7 +19,8 @@
         };
 
         scls = {
-          command = "${inputs.simple-completion-language-server.packages.${system}.default}";
+          # TODO: add meta.mainProgram attribute to the flake to allow usage of `lib.getExe`
+          command = "${scls}/bin/simple-completion-language-server";
           config = {
             max_completion_items = 20; # set max completion results len for each group: words, snippets, unicode-input
             snippets_first = true; # completions will return before snippets by default
