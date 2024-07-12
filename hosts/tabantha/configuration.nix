@@ -119,7 +119,7 @@ in
   # ## #
 
   environment.systemPackages = builtins.attrValues {
-    inherit (unstable) nh;
+    inherit (unstable) nh helix;
   };
 
   # TODO: use a variable

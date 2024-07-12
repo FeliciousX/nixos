@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, ... }:
+{ inputs, system, pkgs, unstable, ... }:
 let
   scls = inputs.simple-completion-language-server.defaultPackage.${system};
 in
@@ -6,6 +6,7 @@ in
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    package = unstable.helix;
     themes = import ./themes.nix;
     languages = {
       language-server = {
