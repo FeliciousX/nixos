@@ -69,6 +69,7 @@
 
     # File Management
     okular # PDF Viewer
+    zathura
     #p7zip             # Zip Encryption
     rsync # Syncer - $ rsync -r dir1/ dir2/
     syncthing # File Sync
