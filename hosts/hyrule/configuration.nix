@@ -112,6 +112,12 @@
     };
   };
 
+
+  # syncthing ports
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # /syncthing ports
+
   networking.extraHosts =
     ''
       127.0.0.1 dashboards.search.zenu.com.au
