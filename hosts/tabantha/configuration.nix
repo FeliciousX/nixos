@@ -114,12 +114,15 @@ in
   services.tlp.enable = true;
   services.auto-cpufreq.enable = true;
 
-  # ## #
-  # nh #
-  # ## #
+  # ############### #
+  # System Packages #
+  # ############### #
 
   environment.systemPackages = builtins.attrValues {
-    inherit (unstable) nh helix;
+    inherit (unstable)
+      nh
+      helix
+      ;
   };
 
   # TODO: use a variable

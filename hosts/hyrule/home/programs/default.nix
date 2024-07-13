@@ -13,107 +13,110 @@
     ../../../../modules-home-manager/zellij.nix
   ];
 
-  home.packages = with pkgs; [
-    ashpd-demo
-    # tui apps
-    graph-easy
-    nmap
-    slides
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      ashpd-demo
+      # tui apps
+      graph-easy
+      nmap
+      slides
 
-    # nice to have gui apps
-    chromium
-    darktable
-    dbeaver
-    mangohud
-    mysql-workbench
-    protonup
-    protonvpn-gui
-    telegram-desktop
-    vscode
+      # nice to have gui apps
+      chromium
+      darktable
+      dbeaver
+      mangohud
+      mysql-workbench
+      protonup
+      protonvpn-gui
+      telegram-desktop
+      vscode
+      yubikey-manager-qt
 
-    # Terminal
-    bat
-    bitwarden-cli
-    bottom
-    btop # Resource Manager
-    curlie
-    delta
-    dia
-    direnv
-    du-dust
-    eza
-    fd
-    fzf
-    fzy
-    glow
-    gping
-    hyperfine
-    jq
-    marksman
-    neofetch
-    procs
-    pv
-    ripgrep
-    ripdrag
-    tldr # Helper
+      # Terminal
+      bat
+      bitwarden-cli
+      bottom
+      btop# Resource Manager
+      curlie
+      delta
+      dia
+      direnv
+      du-dust
+      eza
+      fd
+      fzf
+      fzy
+      glow
+      gping
+      hyperfine
+      jq
+      marksman
+      neofetch
+      procs
+      pv
+      ripgrep
+      ripdrag
+      tldr# Helper
 
-    # Video/Audio
-    exiftool
-    ffmpeg-full
-    vlc # Media Player
-    spotify
+      # Video/Audio
+      exiftool
+      ffmpeg-full
+      vlc# Media Player
+      spotify
 
-    # Apps
-    firefox # Browser
-    #google-chrome     # Browser
+      # Apps
+      firefox# Browser
+      #google-chrome     # Browser
 
-    # File Management
-    okular # PDF Viewer
-    zathura
-    #p7zip             # Zip Encryption
-    rsync # Syncer - $ rsync -r dir1/ dir2/
-    syncthing # File Sync
-    unrar # Rar Files
-    unzip # Zip Files
-    zip # Zip
+      # File Management
+      okular# PDF Viewer
+      zathura
+      #p7zip             # Zip Encryption
+      rsync# Syncer - $ rsync -r dir1/ dir2/
+      syncthing# File Sync
+      unrar# Rar Files
+      unzip# Zip Files
+      zip# Zip
 
-    # General configuration
-    ipfs # protocol
-    pciutils # Computer Utility Info
-    pipewire # Sound
-    #usbutils         # USB Utility Info
-    wget # Downloader
+      # General configuration
+      ipfs# protocol
+      pciutils# Computer Utility Info
+      pipewire# Sound
+      #usbutils         # USB Utility Info
+      wget# Downloader
 
-    # General home-manager
-    dunst # Notifications
-    libnotify # Dependency for Dunst
-    yubikey-agent
-    yubikey-manager
-    yubioath-flutter
-    #
-    # Xorg configuration
-    xclip # Console Clipboard
-    #
-    # Wayland configuration
-    grim # Image Grabber
-    swappy # Screenshot Editor
-    wl-clipboard # Console Clipboard
-    #
-    # Wayland home-manager
-    #
-    # Desktop
-    bitwarden
-    deluge # Torrents
-    discord # Chat
-    #ffmpeg           # Video Support (dslr)
-    gimp
-    obsidian # journaling
-    orca # Screen Reader
-    simple-scan # Scanning
+      # General home-manager
+      dunst# Notifications
+      libnotify# Dependency for Dunst
+      yubikey-agent
+      yubikey-manager
+      yubioath-flutter
+      #
+      # Xorg configuration
+      xclip# Console Clipboard
+      #
+      # Wayland configuration
+      grim# Image Grabber
+      swappy# Screenshot Editor
+      wl-clipboard# Console Clipboard
+      #
+      # Wayland home-manager
+      #
+      # Desktop
+      bitwarden
+      deluge# Torrents
+      discord# Chat
+      #ffmpeg           # Video Support (dslr)
+      gimp
+      obsidian# journaling
+      orca# Screen Reader
+      simple-scan# Scanning
 
-    libreoffice # Office Tools
-    #
-    # Flatpak
-    obs-studio # Recording/Live Streaming
-  ];
+      libreoffice# Office Tools
+      #
+      # Flatpak
+      obs-studio# Recording/Live Streaming
+      ;
+  };
 }

@@ -19,7 +19,12 @@
 
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ uniemoji libpinyin ];
+  i18n.inputMethod.ibus.engines = builtins.attrValues {
+    inherit (pkgs.ibus-engines)
+      uniemoji
+      libpinyin
+      ;
+  };
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
     LC_IDENTIFICATION = "en_AU.UTF-8";
@@ -43,24 +48,36 @@
   # Fonts #
   # ##### #
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-    nerdfonts
-    hack-font
-    ibm-plex
-  ];
+  fonts.packages = builtins.attrValues {
+    inherit (pkgs)
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+      nerdfonts
+      hack-font
+      ibm-plex
+      ;
+  };
 
   fonts.fontconfig = { antialias = lib.mkDefault true; };
 
-  environment.systemPackages = with pkgs; [
-    nix-output-monitor
-    cifs-utils
-    inetutils
-    dig
-  ];
+  # ############### #
+  # System Packages #
+  # ############### #
+
+  environment.systemPackages = builtins.attrValues {
+    inherit (unstable)
+      nh
+      nix-output-monitor
+      helix
+      ;
+    inherit (pkgs)
+      cifs-utils
+      inetutils
+      dig
+      ;
+  };
 
   # ###### #
   # docker #
@@ -189,6 +206,16 @@
 
   programs.fish.enable = true;
 
+  # #################### #
+  # Android Debug Bridge #
+  # #################### #
+
+  programs.adb.enable = true;
+
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+
   # ########## #
   # Encryption #
   # ########## #
@@ -213,7 +240,7 @@
   users.users.${user} = {
     initialHashedPassword = "";
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" ];
     shell = pkgs.fish;
   };
 
