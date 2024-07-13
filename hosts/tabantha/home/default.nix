@@ -2,6 +2,7 @@
   imports = [
     ./theme.nix
     ./programs
+    ./syncthing.nix
   ];
 
   # ####### #
