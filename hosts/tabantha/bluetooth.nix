@@ -5,7 +5,7 @@
 
   services.blueman.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    blueman
+  environment.systemPackages = [
+    pkgs.blueman
   ];
 }

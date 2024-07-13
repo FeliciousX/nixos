@@ -3,7 +3,12 @@
 {
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ uniemoji libpinyin ];
+  i18n.inputMethod.ibus.engines = builtins.attrValues {
+    inherit (pkgs.ibus-engines)
+      uniemoji
+      libpinyin
+      ;
+  };
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
     LC_IDENTIFICATION = "en_AU.UTF-8";

@@ -8,6 +8,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ./language.nix
+    ./console.nix
     ./networking.nix
     ./blocky.nix
     ./yubikey.nix
@@ -21,26 +22,21 @@ in
 
   system.stateVersion = "23.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
 
-  # ####### #
-  # Console #
-  # ####### #
-
-  console.font = "Lat2-Terminus16";
-  console.keyMap = "us";
-
   # ##### #
   # Fonts #
   # ##### #
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-    nerdfonts
-    hack-font
-    ibm-plex
-  ];
+  fonts.packages = builtins.attrValues {
+    inherit (pkgs)
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+      nerdfonts
+      hack-font
+      ibm-plex
+      ;
+  };
 
   fonts.fontconfig = { antialias = lib.mkDefault true; };
 
@@ -64,6 +60,11 @@ in
   security.polkit.enable = true;
 
   networking.firewall.enable = true;
+
+  # syncthing ports
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # /syncthing ports
 
   services.fail2ban = {
     enable = true;
