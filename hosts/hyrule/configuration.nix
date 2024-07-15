@@ -76,6 +76,7 @@
       cifs-utils
       inetutils
       dig
+      sshfs
       ;
   };
 
