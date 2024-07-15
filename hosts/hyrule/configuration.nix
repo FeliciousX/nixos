@@ -79,6 +79,10 @@
       ;
   };
 
+  # TODO: use a variable
+  # this tells nh where to find nix config
+  environment.variables.FLAKE = "/etc/nixos";
+
   # ###### #
   # docker #
   # ###### #
