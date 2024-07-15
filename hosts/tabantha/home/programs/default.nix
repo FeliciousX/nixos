@@ -50,7 +50,6 @@
       gping
       hyperfine
       jq
-      marksman
       neofetch
       procs
       pv
