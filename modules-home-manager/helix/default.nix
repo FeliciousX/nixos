@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, unstable, ... }:
+{ inputs, system, lib, pkgs, unstable, ... }:
 let
   scls = inputs.simple-completion-language-server.defaultPackage.${system};
 in
@@ -10,13 +10,17 @@ in
     themes = import ./themes.nix;
     languages = {
       language-server = {
-        typescript-language-server = with pkgs.nodePackages; {
-          command = "${typescript-language-server}/bin/typescript-language-server";
+        typescript-language-server = {
+          command = lib.getExe pkgs.nodePackages.typescript-language-server;
           args = [ "--stdio" ];
         };
 
         nil = {
           command = "${pkgs.nil}/bin/nil";
+        };
+
+        markdown-oxide = {
+          command = lib.getExe unstable.markdown-oxide;
         };
 
         scls = {
@@ -38,7 +42,7 @@ in
           auto-format = true;
           file-types = [ "nix" ];
           formatter = {
-            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+            command = lib.getExe pkgs.nixpkgs-fmt;
           };
           language-servers = [ "nil" ];
         }
@@ -49,6 +53,10 @@ in
         {
           name = "tsx";
           auto-format = true;
+        }
+        {
+          name = "markdown";
+          language-servers = [ "markdown-oxide" ];
         }
         {
           name = "coldfusion";

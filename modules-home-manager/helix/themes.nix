@@ -76,8 +76,8 @@
       "markup.quote" = { fg = yellow; modifiers = [ "italic" ]; };
       "markup.raw" = { fg = foreground; };
 
-      "diagnostic.underline" = { color = orange; style = "curl"; };
-      "diagnostic.error.underline" = { color = red; style = "curl"; };
+      "diagnostic.warning" = { underline = { color = orange; style = "curl"; }; };
+      "diagnostic.error" = { underline = { color = red; style = "curl"; }; };
     };
 
 }
