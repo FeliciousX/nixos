@@ -5,6 +5,7 @@
     ./yubikey.nix
     ./ssh.nix
     ./builder.nix
+    ./android.nix
   ];
 
   networking.hostName = "hyrule";
@@ -217,16 +218,6 @@
 
   programs.fish.enable = true;
 
-  # #################### #
-  # Android Debug Bridge #
-  # #################### #
-
-  programs.adb.enable = true;
-
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-
   # ########## #
   # Encryption #
   # ########## #
@@ -251,7 +242,7 @@
   users.users.${user} = {
     initialHashedPassword = "";
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
   };
 
