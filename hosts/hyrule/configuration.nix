@@ -75,9 +75,10 @@
       ;
     inherit (pkgs)
       cifs-utils
-      inetutils
       dig
+      inetutils
       sshfs
+      apacheHttpd
       ;
   };
 
