@@ -29,14 +29,41 @@
     blocking = {
       blackLists = {
         #Adblocking
-        ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
-        #You can add additional categories
+        ads = [
+          "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
+          "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+          "https://adaway.org/hosts.txt"
+          "https://v.firebog.net/hosts/AdguardDNS.txt"
+        ];
+        suspicious = [
+          "https://v.firebog.net/hosts/static/w3kbl.txt"
+        ];
+        tracking = [
+          "https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt"
+          "https://v.firebog.net/hosts/Easyprivacy.txt"
+          "https://v.firebog.net/hosts/Prigent-Ads.txt"
+          "https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt"
+          "https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt"
+          "https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireTV.txt"
+        ];
+        malicious = [
+          "http://phishing.mailscanner.info/phishing.bad.sites.conf"
+          "https://v.firebog.net/hosts/Prigent-Crypto.txt"
+        ];
       };
       #Configure what block categories are used
       clientGroupsBlock = {
-        default = [ "ads" ];
-        kids-ipad = [ "ads" "adult" ];
+        default = [
+          "ads"
+          "suspicious"
+          "tracking"
+          "malicious"
+        ];
       };
+    };
+
+    hostsFile = {
+      filePath = "/etc/hosts";
     };
   };
 }
