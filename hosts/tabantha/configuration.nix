@@ -14,6 +14,7 @@ in
     ./yubikey.nix
     ./bluetooth.nix
     ./ssh.nix
+    ./android.nix
     ./distributed-build.nix
   ];
 
