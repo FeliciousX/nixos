@@ -125,6 +125,10 @@ in
       nh
       helix
       ;
+    inherit (pkgs)
+      dig
+      inetutils
+      ;
   };
 
   # TODO: use a variable
