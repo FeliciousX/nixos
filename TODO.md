@@ -2,6 +2,9 @@
 
 - [ ] move hostfile extensions
 - [ ] consider moving `~/.ssh/config` to home-manager
+- [ ] set IP Addresses on kokiri blocky to match all other devices by using a variable
+- [ ] update zellij to not cache last running program
+- [ ] disable atuin on up key?
 
 # Done
 
