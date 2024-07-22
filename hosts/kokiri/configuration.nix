@@ -8,7 +8,6 @@ in
   imports = [
     ./ssh.nix
     ./distributed-build.nix
-    #./adguardhome.nix
     ./blocky.nix
   ];
 

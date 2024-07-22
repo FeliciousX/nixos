@@ -10,7 +10,6 @@ in
     ./language.nix
     ./console.nix
     ./networking.nix
-    ./blocky.nix
     ./yubikey.nix
     ./bluetooth.nix
     ./ssh.nix
@@ -107,13 +106,15 @@ in
   services.xserver.xkb.layout = "us";
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.debug = true;
 
   # ################ #
   # Power Management #
   # ################ #
 
   services.power-profiles-daemon.enable = false;
-  services.tlp.enable = true;
+
+  services.tlp.enable = false;
   services.auto-cpufreq.enable = true;
 
   # ############### #
