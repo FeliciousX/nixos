@@ -124,11 +124,16 @@ in
   environment.systemPackages = builtins.attrValues {
     inherit (unstable)
       nh
+      nix-output-monitor
       helix
       ;
     inherit (pkgs)
+      apacheHttpd
+      cifs-utils
       dig
       inetutils
+      sshfs
+      wireguard-tools
       ;
   };
 

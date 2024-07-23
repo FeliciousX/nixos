@@ -74,11 +74,12 @@
       helix
       ;
     inherit (pkgs)
+      apacheHttpd
       cifs-utils
       dig
       inetutils
       sshfs
-      apacheHttpd
+      wireguard-tools
       ;
   };
 
