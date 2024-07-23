@@ -67,7 +67,7 @@
       tabantha = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit unstable inputs user;
+          inherit user system pkgs unstable inputs;
         };
         modules = [
           ./hosts/tabantha/configuration.nix

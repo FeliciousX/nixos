@@ -7,6 +7,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./nvidia.nix
     ./language.nix
     ./console.nix
     ./networking.nix
