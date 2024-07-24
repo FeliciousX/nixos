@@ -104,5 +104,17 @@
       nixosConfigurations.images = {
         kokiri = nixosConfigurations.kokiri.config.system.build.sdImage;
       };
+      devShells.${system}.default = pkgs.mkShell {
+
+        packages = pkgs.lib.attrVals [
+          "just"
+          "fish"
+        ]
+          pkgs;
+
+        shellHook = ''
+          exec fish
+        '';
+      };
     };
 }
