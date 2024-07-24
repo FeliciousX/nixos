@@ -16,4 +16,13 @@ clean:
 gc:
 	sudo nix-collect-garbace --delete-old
 
+push: push-github push-codeberg
+
+push-github:
+	git switch main
+	git push github main
+
+push-codeberg:
+	git switch master
+	git push origin master
 
