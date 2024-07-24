@@ -172,11 +172,15 @@ in
     options = "--delete-older-than 15d";
   };
 
+  environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
+
+  nix.settings.nix-path = lib.mkForce "nixpkgs/etc/nix/inputs/nixpkgs";
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.channel.enable = false;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     keep-outputs          = true
     keep-derivations      = true
   '';
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 }
