@@ -70,14 +70,14 @@ in
 
   networking = {
     defaultGateway = {
-      address = "192.168.31.1";
+      address = "192.168.0.1";
       interface = "enu1u1";
     };
     interfaces.enu1u1 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "192.168.31.111";
-        prefixLength = 24;
+        address = "192.168.0.10";
+        prefixLength = 26;
       }];
     };
   };
@@ -88,16 +88,16 @@ in
 
   networking.extraHosts =
     ''
-      192.168.31.50 hyrule.local
-      192.168.31.92 tabantha.local
-      192.168.31.111 pi.local
-      192.168.31.193 homeassistant.local
-      192.168.31.61 basingse.local
-      192.168.31.61 traefik.local.feliciousx.dev
-      192.168.31.61 portainer.local.feliciousx.dev
-      192.168.31.61 nextcloud.local.feliciousx.dev
-      192.168.31.61 jellyfin.local.feliciousx.dev
-      192.168.31.61 plex.local.feliciousx.dev
+      192.168.0.2 homeassistant.local
+      192.168.0.10 kokiri.local
+      192.168.0.11 hyrule.local
+      192.168.0.12 tabantha.local
+      192.168.0.62 basingse.local
+      192.168.0.62 traefik.local.feliciousx.dev
+      192.168.0.62 portainer.local.feliciousx.dev
+      192.168.0.62 nextcloud.local.feliciousx.dev
+      192.168.0.62 jellyfin.local.feliciousx.dev
+      192.168.0.62 plex.local.feliciousx.dev
     '';
 
   # forwarding
