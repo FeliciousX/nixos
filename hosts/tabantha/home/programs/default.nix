@@ -42,6 +42,7 @@
       dia
       direnv
       du-dust
+      doctl# digital ocean cli
       eza
       fd
       fzf
@@ -56,6 +57,8 @@
       ripgrep
       ripdrag
       tldr
+      openvpn
+      shadowsocks-libev
 
       # Video/Audio
       exiftool
