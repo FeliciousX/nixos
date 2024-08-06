@@ -64,6 +64,14 @@ in
     enableRedistributableFirmware = true;
   };
 
+  # ###### #
+  # docker #
+  # ###### #
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
   # ########## #
   # Networking #
   # ########## #
@@ -111,7 +119,7 @@ in
   users.mutableUsers = false;
   users.users.nixos = {
     shell = pkgs.bash;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
   };
 
   system.stateVersion = "23.05";

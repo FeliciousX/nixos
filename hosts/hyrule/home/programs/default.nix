@@ -43,6 +43,7 @@
       dia
       direnv
       du-dust
+      doctl# digital ocean cli
       eza
       fd
       fzf
