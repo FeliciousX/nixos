@@ -22,6 +22,7 @@
       slides
 
       # nice to have gui apps
+      bruno
       chromium
       darktable
       dbeaver
@@ -59,6 +60,7 @@
       tldr
       openvpn
       shadowsocks-libev
+      usql
 
       # Video/Audio
       exiftool
