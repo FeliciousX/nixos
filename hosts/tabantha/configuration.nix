@@ -127,6 +127,7 @@ in
       nh
       nix-output-monitor
       helix
+      scrcpy# temporarily here until 2.4 is in stable
       ;
     inherit (pkgs)
       apacheHttpd

@@ -23,6 +23,7 @@
 
       # nice to have gui apps
       bruno
+      #scrcpy# android screen mirror
       chromium
       darktable
       dbeaver
