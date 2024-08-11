@@ -102,6 +102,7 @@ in
       192.168.0.12 tabantha.local
       192.168.0.62 basingse.local
       192.168.0.62 traefik.local.feliciousx.dev
+      192.168.0.62 traefik-dashboard.local.feliciousx.dev
       192.168.0.62 portainer.local.feliciousx.dev
       192.168.0.62 nextcloud.local.feliciousx.dev
       192.168.0.62 jellyfin.local.feliciousx.dev
