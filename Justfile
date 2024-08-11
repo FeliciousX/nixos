@@ -16,6 +16,9 @@ clean:
 gc:
 	sudo nix-collect-garbace --delete-old
 
+switch-kokiri:
+	nixos-rebuild switch --flake .#kokiri --target-host nixos@kokiri --use-remote-sudo &|nom
+
 push: push-github push-codeberg
 
 push-github:
