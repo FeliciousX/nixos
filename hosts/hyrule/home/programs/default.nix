@@ -52,6 +52,7 @@
       gping
       hyperfine
       jq
+      lazydocker
       neofetch
       procs
       pv
