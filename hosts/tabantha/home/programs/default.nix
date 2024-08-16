@@ -18,6 +18,7 @@
       ashpd-demo
       # tui apps
       graph-easy
+      lazydocker
       nmap
       slides
 
