@@ -120,11 +120,18 @@
     };
   };
 
-
   # syncthing ports
   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   # /syncthing ports
+
+  # Increase UDP Buffer Size
+  # for increased syncthing transfer speed via QUIC
+  # https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes
+  boot.kernel.sysctl = {
+    "net.core.rmem_max" = 7500000;
+    "net.core.wmem_max" = 7500000;
+  };
 
   networking.extraHosts =
     ''
