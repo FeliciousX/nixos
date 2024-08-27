@@ -103,15 +103,15 @@ in
   # ##### #
   # Gnome #
   # ##### #
-  specialisation = {
-    gnome.configuration = {
-      services.xserver.enable = true;
-      services.xserver.xkb.layout = "us";
-      services.xserver.displayManager.gdm.enable = true;
-      services.xserver.desktopManager.gnome.enable = true;
-      services.xserver.desktopManager.gnome.debug = true;
-    };
-  };
+  # specialisation = {
+  #   gnome.configuration = {
+  #     services.xserver.enable = true;
+  #     services.xserver.xkb.layout = "us";
+  #     services.xserver.displayManager.gdm.enable = true;
+  #     services.xserver.desktopManager.gnome.enable = true;
+  #     services.xserver.desktopManager.gnome.debug = true;
+  #   };
+  # };
 
   # ######## #
   # Hyprland #
