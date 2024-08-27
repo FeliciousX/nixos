@@ -162,6 +162,8 @@ in
         dunst# notification daemon
         libnotify# dunst dep
         wofi
+        hyprpaper# wallpaper daemon
+        kitty
         ;
     } ++ [
     (pkgs.waybar.overrideAttrs (oldAttrs: {
