@@ -158,10 +158,6 @@ in
         inetutils
         sshfs
         wireguard-tools
-        eww
-        dunst# notification daemon
-        libnotify# dunst dep
-        wofi
         hyprpaper# wallpaper daemon
         kitty
         ;

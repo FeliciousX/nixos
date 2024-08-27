@@ -95,6 +95,7 @@
       # General home-manager
       dunst# Notifications
       libnotify# Dependency for Dunst
+      wofi# app launcher
       yubikey-agent
       yubikey-manager
       yubioath-flutter
@@ -105,6 +106,8 @@
       # Wayland configuration
       grim# Image Grabber
       swappy# Screenshot Editor
+      slurp
+      eww
       wl-clipboard# Console Clipboard
       #
       # Wayland home-manager
@@ -113,6 +116,7 @@
       bitwarden
       deluge# Torrents
       discord# Chat
+      dolphin
       #ffmpeg           # Video Support (dslr)
       gimp
       obsidian# journaling
