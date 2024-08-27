@@ -103,12 +103,32 @@ in
   # ##### #
   # Gnome #
   # ##### #
+  specialisation = {
+    gnome.configuration = {
+      services.xserver.enable = true;
+      services.xserver.xkb.layout = "us";
+      services.xserver.displayManager.gdm.enable = true;
+      services.xserver.desktopManager.gnome.enable = true;
+      services.xserver.desktopManager.gnome.debug = true;
+    };
+  };
 
-  services.xserver.enable = true;
-  services.xserver.xkb.layout = "us";
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.gnome.debug = true;
+  # ######## #
+  # Hyprland #
+  # ######## #
+  programs.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # ################ #
   # Power Management #
@@ -123,22 +143,32 @@ in
   # System Packages #
   # ############### #
 
-  environment.systemPackages = builtins.attrValues {
-    inherit (unstable)
-      nh
-      nix-output-monitor
-      helix
-      scrcpy# temporarily here until 2.4 is in stable
-      ;
-    inherit (pkgs)
-      apacheHttpd
-      cifs-utils
-      dig
-      inetutils
-      sshfs
-      wireguard-tools
-      ;
-  };
+  environment.systemPackages = builtins.attrValues
+    {
+      inherit (unstable)
+        nh
+        nix-output-monitor
+        helix
+        scrcpy# temporarily here until 2.4 is in stable
+        ;
+      inherit (pkgs)
+        apacheHttpd
+        cifs-utils
+        dig
+        inetutils
+        sshfs
+        wireguard-tools
+        eww
+        dunst# notification daemon
+        libnotify# dunst dep
+        wofi
+        ;
+    } ++ [
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    })
+    )
+  ];
 
   # TODO: use a variable
   environment.variables.FLAKE = "/etc/nixos";
