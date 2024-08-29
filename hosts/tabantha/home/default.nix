@@ -3,6 +3,7 @@
     ./theme.nix
     ./programs
     ./syncthing.nix
+    ./ags.nix
   ];
 
   # ####### #
