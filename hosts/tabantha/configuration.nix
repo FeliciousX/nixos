@@ -37,6 +37,7 @@ in
       nerdfonts
       hack-font
       ibm-plex
+      meslo-lgs-nf
       ;
   };
 
