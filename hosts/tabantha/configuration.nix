@@ -16,6 +16,7 @@ in
     ./ssh.nix
     ./android.nix
     ./distributed-build.nix
+    ./greetd.nix
   ];
 
   networking.hostName = hostName;
