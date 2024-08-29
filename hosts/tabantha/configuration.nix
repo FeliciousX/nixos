@@ -161,6 +161,7 @@ in
         wireguard-tools
         hyprpaper# wallpaper daemon
         kitty
+        brightnessctl
         ;
     } ++ [
     (pkgs.waybar.overrideAttrs (oldAttrs: {
