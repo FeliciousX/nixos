@@ -11,6 +11,7 @@
     ../../../../modules-home-manager/nnn.nix
     ../../../../modules-home-manager/starship.nix
     ../../../../modules-home-manager/zellij.nix
+    ../../../../modules-home-manager/zoxide.nix
   ];
 
   home.packages = builtins.attrValues {

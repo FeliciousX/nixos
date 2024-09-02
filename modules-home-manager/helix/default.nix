@@ -114,6 +114,12 @@ in
       keys.normal.A-t.g = ":toggle-option file-picker.git-ignore";
       keys.normal.A-t.h = ":toggle-option file-picker.hidden";
 
+      keys.insert = {
+        left = "no_op";
+        right = "no_op";
+        up = "no_op";
+        down = "no_op";
+      };
 
     };
   };

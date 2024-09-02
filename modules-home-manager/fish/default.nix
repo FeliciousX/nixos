@@ -2,9 +2,10 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
-      z = "zellij"; # TODO: check if zellij is enabled before setting abbr
-      zenucompose = "docker compose -f docker-compose.yml -f docker-compose.zenu.yml";
+      # docker
       dc = "docker compose";
+
+      # git
       ga = "git add";
       gb = "git branch";
       gc = "git commit -v";
