@@ -42,6 +42,7 @@
       bottom
       btop# Resource Manager
       curlie
+      csview
       delta
       dia
       direnv
