@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
   hx = lib.getExe pkgs.helix;
+  eza = lib.getExe pkgs.eza;
   fzf = lib.getExe pkgs.fzf;
   rg = lib.getExe pkgs.ripgrep;
   zoxide = lib.getExe pkgs.zoxide;
@@ -15,10 +16,15 @@ in
       f = "\$${hx} $(${fzf})";
       "<c-f>" = ":fzf_jump";
       gs = ":fzf_search";
-      z = "push :z<space>";
     };
     commands = {
-      move-parent = ''''${{
+      on-cd = ''&{{
+        ${zoxide} add "$PWD"
+      }}'';
+      on-select = ''&{{
+        lf -remote "send $id set statfmt \"$(${eza} -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+      }}'';
+      move-parent = ''%{{
         dironly="setlocal '$(dirname "$PWD")' dironly"
         lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
       }}'';
@@ -44,19 +50,13 @@ in
         )"
         [ -n "$res" ] && lf -remote "send $id select \"$res\""
       }}'';
-      z = ''''${{
+      z = ''%{{
         result="$(${zoxide} query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
         lf -remote "send $id cd \"$result\""
       }}'';
       zi = ''''${{
         result="$(${zoxide} query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
         lf -remote "send $id cd \"$result\""
-      }}'';
-      on-cd = ''''${{
-        ${zoxide} add "$PWD"
-      }}'';
-      on-select = ''&{{
-        lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
       }}'';
     };
   };
