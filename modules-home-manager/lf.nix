@@ -3,6 +3,7 @@ let
   hx = lib.getExe pkgs.helix;
   fzf = lib.getExe pkgs.fzf;
   rg = lib.getExe pkgs.ripgrep;
+  zoxide = lib.getExe pkgs.zoxide;
 in
 {
   programs.lf = {
@@ -14,6 +15,7 @@ in
       f = "\$${hx} $(${fzf})";
       "<c-f>" = ":fzf_jump";
       gs = ":fzf_search";
+      z = "push :z<space>";
     };
     commands = {
       move-parent = ''''${{
@@ -41,6 +43,17 @@ in
             | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
         )"
         [ -n "$res" ] && lf -remote "send $id select \"$res\""
+      }}'';
+      z = ''''${{
+        result="$(${zoxide} query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id cd \"$result\""
+      }}'';
+      zi = ''''${{
+        result="$(${zoxide} query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id cd \"$result\""
+      }}'';
+      on-cd = ''''${{
+        ${zoxide} add "$PWD"
       }}'';
     };
   };
