@@ -46,15 +46,15 @@
     offload.enable = lib.mkDefault false;
   };
 
-  specialisation = {
-    on-the-go.configuration = {
-      system.nixos.tags = [ "on-the-go" ];
-      hardware.nvidia.prime = {
-        sync.enable = lib.mkForce false;
+  # specialisation = {
+  #   on-the-go.configuration = {
+  #     system.nixos.tags = [ "on-the-go" ];
+  #     hardware.nvidia.prime = {
+  #       sync.enable = lib.mkForce false;
 
-        offload.enable = lib.mkForce true;
-        offload.enableOffloadCmd = lib.mkForce true;
-      };
-    };
-  };
+  #       offload.enable = lib.mkForce true;
+  #       offload.enableOffloadCmd = lib.mkForce true;
+  #     };
+  #   };
+  # };
 }
