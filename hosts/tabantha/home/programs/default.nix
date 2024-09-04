@@ -65,6 +65,7 @@
       openvpn
       shadowsocks-libev
       usql
+      xsv
 
       # Video/Audio
       exiftool
