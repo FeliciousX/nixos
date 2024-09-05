@@ -36,12 +36,14 @@
     {
       device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
+      options = [ "noatime" ];
     };
 
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
+      options = [ "noatime" ];
     };
 
   swapDevices =
