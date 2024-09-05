@@ -157,6 +157,7 @@ in
         nix-output-monitor
         helix
         scrcpy# temporarily here until 2.4 is in stable
+        overskride# bluetooth gtk4 client
         ;
       inherit (pkgs)
         apacheHttpd
