@@ -167,6 +167,7 @@ in
         sshfs
         wireguard-tools
         hyprpaper# wallpaper daemon
+        pavucontrol
         kitty
         brightnessctl
         ;
