@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   imports = [
     ../../../../modules-home-manager/alacritty.nix
     ../../../../modules-home-manager/atuin.nix
@@ -15,6 +15,9 @@
   ];
 
   home.packages = builtins.attrValues {
+    inherit (unstable)
+      zed-editor
+      ;
     inherit (pkgs)
       ashpd-demo
       # tui apps
