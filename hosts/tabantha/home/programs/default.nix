@@ -19,6 +19,7 @@
       zed-editor
       ;
     inherit (pkgs)
+      protonmail-bridge
       ashpd-demo
       # tui apps
       graph-easy
@@ -28,6 +29,7 @@
 
       # nice to have gui apps
       bruno
+      thunderbird
       #scrcpy# android screen mirror
       chromium
       darktable
