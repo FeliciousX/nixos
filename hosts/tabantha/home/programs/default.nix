@@ -6,6 +6,7 @@
     ../../../../modules-home-manager/git.nix
     ../../../../modules-home-manager/helix
     ../../../../modules-home-manager/lazygit.nix
+    ../../../../modules-home-manager/librewolf.nix
     ../../../../modules-home-manager/lf.nix
     ../../../../modules-home-manager/nix-index.nix
     ../../../../modules-home-manager/nnn.nix
