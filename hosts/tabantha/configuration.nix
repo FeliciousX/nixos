@@ -16,7 +16,6 @@ in
     ./ssh.nix
     ./android.nix
     ./distributed-build.nix
-    ./greetd.nix
   ];
 
   networking.hostName = hostName;
@@ -105,27 +104,14 @@ in
   # ##### #
   # Gnome #
   # ##### #
-  # specialisation = {
-  #   gnome.configuration = {
-  #     services.xserver.enable = true;
-  #     services.xserver.xkb.layout = "us";
-  #     services.xserver.displayManager.gdm.enable = true;
-  #     services.xserver.desktopManager.gnome.enable = true;
-  #     services.xserver.desktopManager.gnome.debug = true;
-  #   };
-  # };
 
-  # ######## #
-  # Hyprland #
-  # ######## #
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "us";
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.debug = true;
 
   environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
     PAGER = "${lib.getExe pkgs.bat} --paging=always";
   };
 
@@ -165,17 +151,10 @@ in
         inetutils
         sshfs
         wireguard-tools
-        hyprpaper# wallpaper daemon
         pavucontrol
-        kitty
         brightnessctl
         ;
-    } ++ [
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    })
-    )
-  ];
+    };
 
   # TODO: use a variable
   environment.variables.FLAKE = "/etc/nixos";

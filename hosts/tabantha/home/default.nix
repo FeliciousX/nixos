@@ -3,7 +3,6 @@
     ./theme.nix
     ./programs
     ./syncthing.nix
-    ./ags.nix
   ];
 
   # ####### #
@@ -12,15 +11,6 @@
 
   services.blueman-applet.enable = true; # bluetooth
   #services.flameshot.enable = true; # Screenshot
-
-  # TODO: look at this
-  # Tray.target can not be found when xsession is not enabled. This fixes the issue.
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
-    };
-  };
 
   home = {
     username = "${user}";
