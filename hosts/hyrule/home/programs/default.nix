@@ -24,7 +24,7 @@
       # nice to have gui apps
       chromium
       darktable
-      dbeaver
+      dbeaver-bin
       mangohud
       mysql-workbench
       protonup

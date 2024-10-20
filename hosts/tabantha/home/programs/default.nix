@@ -34,7 +34,7 @@
       #scrcpy# android screen mirror
       chromium
       darktable
-      dbeaver
+      dbeaver-bin
       mangohud
       mysql-workbench
       protonup

@@ -2,11 +2,16 @@
   description = "Personal NixOS System Flake Config";
   inputs = {
     # packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,7 +23,7 @@
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, lix-module, home-manager, ... }:
     let
       user = "fx";
       system = "x86_64-linux";
@@ -72,6 +77,8 @@
           inherit user system pkgs unstable inputs;
         };
         modules = [
+          lix-module.nixosModules.default
+
           ./hosts/tabantha/configuration.nix
 
           home-manager.nixosModules.home-manager
