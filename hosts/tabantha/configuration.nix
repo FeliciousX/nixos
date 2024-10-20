@@ -116,11 +116,6 @@ in
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = builtins.attrValues {
-    inherit (pkgs)
-      xdg-desktop-portal-gtk
-      ;
-  };
 
   # ################ #
   # Power Management #
