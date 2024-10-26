@@ -112,7 +112,7 @@ in
   services.xserver.desktopManager.gnome.debug = true;
 
   environment.sessionVariables = {
-    PAGER = "${lib.getExe pkgs.bat} --paging=always";
+    PAGER = "${lib.getExe pkgs.bat} --paging=always --theme=Dracula";
   };
 
   xdg.portal.enable = true;
