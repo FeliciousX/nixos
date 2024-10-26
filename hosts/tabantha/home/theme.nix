@@ -11,9 +11,24 @@
   };
   gtk.font = {
     name = "Hack Font Mono Medium";
+    size = 12;
   };
-
+  gtk.cursorTheme = {
+    name = "Numix-Cursor";
+    package = pkgs.numix-cursor-theme;
+  };
+  gtk.gtk3.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
+  gtk.gtk4.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
   home = {
+    sessionVariables.GTK_THEME = "Dracula";
     # This will set cursor system-wide so applications can not choose their own
     pointerCursor = {
       gtk.enable = true;

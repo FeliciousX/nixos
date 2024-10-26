@@ -10,6 +10,7 @@
   };
   gtk.font = {
     name = "Hack Font Mono Medium";
+    size = 12;
   };
 
   home = {
