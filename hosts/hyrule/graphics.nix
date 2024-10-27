@@ -15,7 +15,7 @@
       persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
     };
     modesetting.enable = true;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     nvidiaPersistenced = lib.mkDefault false;
     powerManagement.enable = true;
