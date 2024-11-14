@@ -142,7 +142,6 @@ in
 
   programs.git.delta = {
     options = {
-      syntax-theme = lib.mkDefault "Dracula";
       navigate = true;
       side-by-side = true;
     };
