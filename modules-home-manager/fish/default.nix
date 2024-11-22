@@ -32,6 +32,7 @@
       extract = builtins.readFile ./extract.fish;
       fingerprintssh = "ssh-keygen -l -f {$argv[1]}";
       jira = "xdg-open https://zenusoftware.atlassian.net/browse/{$argv[1]}";
+      today = builtins.readFile ./today.fish;
     };
   };
 }
