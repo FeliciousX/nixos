@@ -14,6 +14,7 @@
   };
 
   home = {
+    sessionVariables.GTK_THEME = "Dracula";
     # This will set cursor system-wide so applications can not choose their own
     pointerCursor = {
       gtk.enable = true;
