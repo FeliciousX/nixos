@@ -41,6 +41,7 @@
           "unrar"
           "vivaldi"
           "vscode"
+          "zoom"
         ];
         permittedInsecurePackages = lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
       };

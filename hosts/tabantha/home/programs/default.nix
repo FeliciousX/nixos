@@ -136,6 +136,7 @@
       #
       # Flatpak
       obs-studio# Recording/Live Streaming
+      zoom-us
       ;
   };
 }
