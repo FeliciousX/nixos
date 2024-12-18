@@ -134,6 +134,8 @@ in
         helix
         scrcpy# temporarily here until 2.4 is in stable
         overskride# bluetooth gtk4 client
+        podman
+        toolbox
         ;
       inherit (pkgs)
         apacheHttpd
