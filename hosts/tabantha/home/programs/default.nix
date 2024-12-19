@@ -138,5 +138,7 @@
       obs-studio# Recording/Live Streaming
       zoom-us
       ;
+
+    inherit (pkgs.kdePackages) kdeconnect-kde;
   };
 }

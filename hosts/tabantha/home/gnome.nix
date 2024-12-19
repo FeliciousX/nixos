@@ -9,6 +9,7 @@
           "Vitals@CoreCoding.com"
           "sound-output-device-chooser@kgshank.net"
           "space-bar@luchrioh"
+          "gsconnect@andyholmes.github.io"
         ];
       };
       "org/gnome/desktop/interface" = {
@@ -34,6 +35,7 @@
       vitals
       sound-output-device-chooser
       space-bar
+      gsconnect
       ;
   };
 }
