@@ -10,6 +10,21 @@ in
     themes = import ./themes.nix;
     languages = {
       language-server = {
+        efm-lsp-prettier = {
+          command = pkgs.efm-langserver;
+          config = {
+            documentFormatting = true;
+            languages = {
+              typescript = [
+                {
+                  formatCommand = "prettier --stdin-filepath \$\{INPUT\}";
+                  formatStdin = true;
+                }
+              ];
+            };
+          };
+        };
+
         typescript-language-server = {
           command = lib.getExe pkgs.nodePackages.typescript-language-server;
           args = [ "--stdio" ];
@@ -49,6 +64,10 @@ in
         {
           name = "typescript";
           auto-format = true;
+          language-servers = [
+            { name = "efm-lsp-prettier"; only-features = [ "diagnostics" "format" ]; }
+            { name = "typescript-language-server"; except-features = [ "format" ]; }
+          ];
         }
         {
           name = "tsx";
