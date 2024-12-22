@@ -23,6 +23,11 @@ in
 
   system.stateVersion = "23.11"; # NOTE: read docs on `system.stateVersion` in `man configuration.nix` before changing
 
+  # ################# #
+  # Keychron keyboard #
+  # ################# #
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
+
   # ##### #
   # Fonts #
   # ##### #
