@@ -1,6 +1,7 @@
 { user, ... }: {
   imports = [
     ./theme.nix
+    ./gnome.nix
     ./programs
     ./syncthing.nix
   ];
