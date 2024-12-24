@@ -32,6 +32,7 @@
     {
       device = "/dev/disk/by-uuid/c535ef35-740d-4893-a5eb-266d7cf34d23";
       fsType = "ext4";
+      options = [ "noatime" "nodiratime" "discard" "errors=remount-ro" ];
     };
 
   boot.initrd.luks.devices."luks-e04009c1-eec5-4a2f-9ba6-f19562d8fda6".device = "/dev/disk/by-uuid/e04009c1-eec5-4a2f-9ba6-f19562d8fda6";
@@ -41,6 +42,14 @@
       device = "/dev/disk/by-uuid/C0F6-1F22";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+
+  fileSystems."/home/fx/evo250" =
+    {
+      device = "/dev/disk/by-label/evo250";
+      fsType = "ext4";
+      options = [ "noatime" "nodiratime" "discard" "errors=remount-ro" "user" "rw" ];
     };
 
   swapDevices =
