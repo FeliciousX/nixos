@@ -119,5 +119,7 @@
       # Flatpak
       obs-studio# Recording/Live Streaming
       ;
+
+    inherit (pkgs.kdePackages) kdeconnect-kde;
   };
 }

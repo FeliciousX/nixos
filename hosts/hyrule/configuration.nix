@@ -227,6 +227,8 @@
 
   programs.fish.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   # ########## #
   # Encryption #
   # ########## #
