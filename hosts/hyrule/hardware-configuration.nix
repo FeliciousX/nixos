@@ -45,11 +45,11 @@
     };
 
 
-  fileSystems."/home/fx/evo250" =
+  fileSystems."/media/local/evo250" =
     {
       device = "/dev/disk/by-label/evo250";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" "discard" "errors=remount-ro" "user" "rw" ];
+      options = [ "noatime" "nodiratime" "discard" "errors=remount-ro" "user" "rw" "exec" ];
     };
 
   swapDevices =
