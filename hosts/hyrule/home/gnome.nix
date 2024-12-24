@@ -15,17 +15,17 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "default";
       };
-      # "org/gnome/desktop/background" = {
-      #   picture-uri = "file:///home/fx/.local/share/backgrounds/2024-10-27-02-37-17-Wallpaper.jpg";
-      #   picture-uri-dark = "file:///home/fx/.local/share/backgrounds/2024-10-27-02-37-17-Wallpaper.jpg";
-      #   primary-color = "#000000000000";
-      #   secondary-color = "#000000000000";
-      # };
-      # "org/gnome/desktop/screensaver" = {
-      #   picture-uri = "file:///home/fx/.local/share/backgrounds/2024-10-27-02-37-17-Wallpaper.jpg";
-      #   primary-color = "#000000000000";
-      #   secondary-color = "#000000000000";
-      # };
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///home/fx/.local/share/backgrounds/canola-field.jpg";
+        picture-uri-dark = "file:///home/fx/.local/share/backgrounds/canola-field.jpg";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "file:///home/fx/.local/share/backgrounds/canola-field.jpg";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
+      };
     };
   };
 
