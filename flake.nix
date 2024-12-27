@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    simple-completion-language-server = {
-      url = "github:estin/simple-completion-language-server/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ags.url = "github:Aylur/ags";
   };
 

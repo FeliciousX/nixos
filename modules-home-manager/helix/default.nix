@@ -1,7 +1,4 @@
-{ inputs, system, lib, pkgs, unstable, ... }:
-let
-  scls = inputs.simple-completion-language-server.defaultPackage.${system};
-in
+{ lib, pkgs, unstable, ... }:
 {
   programs.helix = {
     enable = true;
@@ -38,18 +35,6 @@ in
           command = lib.getExe unstable.markdown-oxide;
         };
 
-        scls = {
-          # TODO: add meta.mainProgram attribute to the flake to allow usage of `lib.getExe`
-          command = "${scls}/bin/simple-completion-language-server";
-          config = {
-            max_completion_items = 20; # set max completion results len for each group: words, snippets, unicode-input
-            snippets_first = true; # completions will return before snippets by default
-            feature_words = true; # enable completion by word
-            feature_snippets = true; # enable snippets
-            feature_unicode_input = true; # enable "unicode input"
-            feature_paths = true; # enable path completion
-          };
-        };
       };
       language = [
         {
@@ -83,7 +68,6 @@ in
           injection-regex = "cfc";
           file-types = [ "cfc" ];
           roots = [ "box.json" ];
-          language-servers = [ "scls" ];
           grammar = "java";
           indent = {
             tab-width = 2;
@@ -96,7 +80,6 @@ in
           injection-regex = "cfml";
           file-types = [ "cfm" ];
           roots = [ "index.cfm" ];
-          language-servers = [ "scls" ];
           grammar = "embedded-template";
           indent = {
             tab-width = 2;
