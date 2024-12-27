@@ -45,13 +45,6 @@
     };
 
 
-  fileSystems."/media/local/evo250" =
-    {
-      device = "/dev/disk/by-label/evo250";
-      fsType = "ext4";
-      options = [ "noatime" "nodiratime" "discard" "errors=remount-ro" "user" "rw" "exec" ];
-    };
-
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b38607d3-580e-4b0e-9512-1fdb816e10c9"; }];
 
