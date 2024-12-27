@@ -238,14 +238,6 @@
     enableSSHSupport = true;
   };
 
-  # ###### #
-  # Gaming #
-  # ###### #
-
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = false;
-  programs.gamemode.enable = false;
-
   # #### #
   # User #
   # #### #

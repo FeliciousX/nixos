@@ -26,11 +26,6 @@
       "dHYTq1lCa6zmTj4oOsExLxNmGoLsVzvisl++jlopwmO09qJAtMrlXeemX8I6q4JRA0kahjZzckMsgR2CfJyyfw==,d9JUMfu8mZ2KTBR7aXy3nVaJhjNUZ8PLV8BwhtmI/UC+myyh3ErGtAG+3r/Xim/+aeccMcl+OaQKAuE5yVQoCA==,es256,+presence"
     ];
 
-    # Steam proton installation path #
-    sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    };
-
     stateVersion = "23.05"; # NOTE: read docs on `home.stateVersion` in `man home-configuration.nix` before changing
   };
 }
