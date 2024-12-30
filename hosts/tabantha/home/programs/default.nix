@@ -4,6 +4,7 @@
     ../../../../modules-home-manager/atuin.nix
     ../../../../modules-home-manager/fish
     ../../../../modules-home-manager/git.nix
+    ../../../../modules-home-manager/jujutsu.nix
     ../../../../modules-home-manager/helix
     ../../../../modules-home-manager/lazygit.nix
     ../../../../modules-home-manager/librewolf.nix
