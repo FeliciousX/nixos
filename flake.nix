@@ -35,7 +35,7 @@
           "vscode"
           "zoom"
         ];
-        permittedInsecurePackages = lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
+        permittedInsecurePackages = [ "jujutsu-0.17.1" ] ++ lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
       };
       pkgs = import nixpkgs {
         inherit system;
